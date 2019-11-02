@@ -67,8 +67,8 @@ def upload_to_test_project():
     print(response.text)
 
 
-def download_main_project(main=False) -> pd.DataFrame:
-    """This should only be used initially to synchronize to the main project"""
+def download_data_df(main=False) -> pd.DataFrame:
+    """This downloads the data dictionary to a dataframe"""
     config = load_config()
     redcap_url = 'https://redcap.miami.edu/api/'
 

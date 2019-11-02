@@ -42,9 +42,9 @@ def test_json_to_cvs():
     assert expected.equals(output)
 
 
-def test_download_main_project():
+def test_download_data_df():
 
     expected = type(pd.DataFrame())
-    observed = type(DataSync.download_main_project())
+    observed = type(DataSync.download_data_df())
 
     assert expected == observed
