@@ -113,6 +113,15 @@ def save_instrument_lists(
         instrument_df.to_csv(instrument_csv_file, index=False)
 
 
+def read_csv_instruments_df() -> List[pd.DataFrame]:
+    dir_all_files: List[str] = os.listdir(DATA_DICTIONARY_DIR)
+    csv_files = [file for file in dir_all_files if '.csv' in file]
+    instrument_dfs = [
+            pd.read_csv(f'{DATA_DICTIONARY_DIR}/{file}') for file in csv_files
+            ]
+    return instrument_dfs
+
+
 def upload_data_dictionary():
     config = load_config()
     data = pd.read_csv(DATA_DICTIONARY_FILE_PATH)
