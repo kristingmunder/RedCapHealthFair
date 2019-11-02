@@ -1,3 +1,3 @@
-import lib
+import DataSync
 
-lib.download_data_dictionary(True)
+DataSync.download_main_project(True)

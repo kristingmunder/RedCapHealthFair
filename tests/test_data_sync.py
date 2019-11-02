@@ -91,3 +91,16 @@ def test_save_instrument_list():
     observed: int = len(dir_csv_files)
 
     assert expected == observed
+
+
+def test_read_csv_instrument_df():
+    dir: str = DataSync.DATA_DICTIONARY_DIR
+
+    n_csv_files: int = len([
+        file for file in os.listdir(dir)
+        if '.csv' in file
+            ])
+
+    expected: int = n_csv_files
+    observed: int = len(DataSync.read_csv_instruments_df())
+    assert expected == observed
