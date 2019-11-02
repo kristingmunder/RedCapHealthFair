@@ -1,0 +1,25 @@
+field_name,form_name,section_header,field_type,field_label,select_choices_or_calculations,field_note,text_validation_type_or_show_slider_number,text_validation_min,text_validation_max,identifier,branching_logic,required_field,custom_alignment,question_number,matrix_group_name,matrix_ranking,field_annotation
+age2,discontinued_fitness_nutrition,,descriptive,[age],,,,,,,,,,,,,
+fitness_time,discontinued_fitness_nutrition,,text,Fitness & Nutrition Check-In TIme,,,datetime_mdy,,,,,y,,,,,@NOW @READONLY
+fitness_assessment,discontinued_fitness_nutrition,,descriptive,"Assessing the Patient's Level of Physical Activity:
+
+(physical activity includes fast-walking, jogging, cycling, swimming, etc)",,,,,,,,,,,,,
+physical_activity_time,discontinued_fitness_nutrition,,yesno,Do you currently participate in at least 2.5 hours (150 minutes) of physical activity per week?,,,,,,,,y,,,,,
+cardio_days,discontinued_fitness_nutrition,,radio,"How many days per week do you fast-walk, dance, run, swim, skate, or ride a bike?","1, Every day | 2, 5-6 days | 3, 3-4 days | 4, 1-2 days | 5, Never",,,,,,,y,,,,,
+weights_days,discontinued_fitness_nutrition,,radio,How many days per week do you lift weights or do body-weight exercises?,"1, Every day | 2, 5-6 days | 3, 3-4 days | 4, 1-2 days | 5, Never",,,,,,,y,,,,,
+work_physically_demanding,discontinued_fitness_nutrition,,radio,How often are your tasks at work physically demanding?,"1, Always | 2, Most of the time | 3, Sometimes | 4, Rarely | 5, Never",,,,,,,y,,,,,
+sedentary_time,discontinued_fitness_nutrition,,radio,"How much of your day is spent sitting, resting, using the computer, watching TV, or lying around?","1, None | 2, Less than half | 3, About half | 4, More than half | 5, Most of the day",,,,,,,y,,,,,
+nutrition_assessment,discontinued_fitness_nutrition,,descriptive,The next questions assess the patient's dietary and eating habits.,,,,,,,,,,,,,
+fried_foods,discontinued_fitness_nutrition,How many days per week do you:,radio,Eat fried foods?,"1, Never | 2, 1-2 days | 3, 3-4 days | 4, 5-6 days | 5, Every day",,,,,,,y,,,dietary_habits,,
+fruit_juice,discontinued_fitness_nutrition,,radio,Drink fruit juice? (fresh-squeezed or from concentrate),"1, Never | 2, 1-2 days | 3, 3-4 days | 4, 5-6 days | 5, Every day",,,,,,,y,,,dietary_habits,,
+drink_soda,discontinued_fitness_nutrition,,radio,Drink soda?,"1, Never | 2, 1-2 days | 3, 3-4 days | 4, 5-6 days | 5, Every day",,,,,,,y,,,dietary_habits,,
+eat_red_meat_or_cold_cuts,discontinued_fitness_nutrition,,radio,"Eat red meat or cold cuts (salami, deli meat, pastrami, etc.)","1, Never | 2, 1-2 days | 3, 3-4 days | 4, 5-6 days | 5, Every day",,,,,,,y,,,dietary_habits,,
+fruit_intake,discontinued_fitness_nutrition,,radio,"On an average day, how many servings or fruit will you have?
+
+(Fruit: 1 medium-sized piece of fruit OR 1/2 cup of sliced fruit OR 1/2 cup of fresh fruit juice)","1, More than 6 | 2, 5-6 | 3, 3-4 | 4, 1-2 | 5, None",,,,,,,y,,,,,
+vegetable_intake,discontinued_fitness_nutrition,,radio,"On an average day, how many servings of vegetables will you have?
+
+(One serving of Vegetables: 1 cup raw leafy greens OR 1/2 cup other vegetables OR 1/2 cup fresh vegetable juice)","1, More than 6 | 2, 5-6 | 3, 3-4 | 4, 1-2 | 5, None",,,,,,,y,,,,,
+fitness_checkout_time,discontinued_fitness_nutrition,,text,"Fitness & Nutrition Check-Out Time
+
+Please click ""Now"".",,,,,,,,y,,,,,

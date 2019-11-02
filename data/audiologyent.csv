@@ -1,0 +1,28 @@
+field_name,form_name,section_header,field_type,field_label,select_choices_or_calculations,field_note,text_validation_type_or_show_slider_number,text_validation_min,text_validation_max,identifier,branching_logic,required_field,custom_alignment,question_number,matrix_group_name,matrix_ranking,field_annotation
+pt_sum13,audiologyent,,descriptive,"<div class=""rich-text-field-label""><table style=""border-collapse: collapse; width: 100%;"" border=""1""> <tbody> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Name:</span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;""> </span><span style=""font-weight: normal;"">[last_name] , [first_name]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">DOB: </span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080; font-weight: 400;"">[birthday]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Age:</span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;""> </span><span style=""font-weight: normal;"">[age]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Record_id: </span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080; font-weight: 400;"">[record_id]</span></td> </tr> </tbody> </table> <p> </p></div>",,,,,,,,,,,,,
+audiology_time_stamp,audiologyent,,text,Audiology Check-In Time,,,datetime_mdy,,,,,y,,,,,@NOW @READONLY
+right_ear_oto,audiologyent,Otoscopy,radio,Right Ear,"1, Within normal limits | 2, Occluding wax, needs follow-up | 3, Abnormal, needs follow-up",,,,,,,y,,,,,
+left_ear_oto,audiologyent,,radio,Left Ear,"1, Within normal limits | 2, Occluding wax, needs follow-up | 3, Abnormal, needs follow-up",,,,,,,y,,,,,
+oto_comments,audiologyent,,notes,Comments (Otoscopy),,,,,,,,,,,,,
+decibels,audiologyent,Screening Audiometry,text,Decibels,,,integer,,,,,y,,,,,
+audio_ri_1,audiologyent,Right Ear,radio,1000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_ri_2,audiologyent,,radio,2000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_ri_3,audiologyent,,radio,3000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_ri_4,audiologyent,,radio,4000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_ri_6,audiologyent,,radio,6000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_ri_8,audiologyent,,radio,8000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_right,,
+audio_le_1,audiologyent,Left Ear,radio,1000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+audio_le_2,audiologyent,,radio,2000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+audio_le_3,audiologyent,,radio,3000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+audio_le_4,audiologyent,,radio,4000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+audio_le_6,audiologyent,,radio,6000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+audio_le_8,audiologyent,,radio,8000 Hz,"1, Pass | 2, Fail",,,,,,,y,,,audio_left,,
+tester_audio,audiologyent,,text,Name of Tester,,,,,,,,y,,,,,
+navigator_audio,audiologyent,,yesno,"Patient meets high risk audiology criteria, assign a Patient Navigator.
+
+Check yes if physician believes there is reason for patient to seek further care for audiological problem after the health fair.",,,,,,,[audio_ri_1] = '2' or [audio_ri_2] = '2' or [audio_ri_3] = '2' or [audio_ri_4] = '2' or [audio_ri_6] = '2' or [audio_ri_8] = '2' or [audio_le_1] = '2' or [audio_le_2] = '2' or [audio_le_3] = '2' or [audio_le_4] = '2' or [audio_le_6] = '2' or [audio_le_8] = '2',y,,,,,
+aud_high_risk,audiologyent,,checkbox,"<div class=""rich-text-field-label""><p>Patient has the following high risk concerns:</p></div>","1, Sudden, recent hearing loss | 2, Active ear infection/blood/drainage | 3, Active ear pain | 4, Active bouts of vertigo | 5, Hearing asymmetry | 6, Unilateral tinnitus | 7, General hearing loss or dizziness | 8, Any other hearing issues deemed significant by audiologist",,,,,,[navigator_audio] = '1',,,,,,
+comments_audiology,audiologyent,,notes,"<div class=""rich-text-field-label""><p>Comments for counseling at FDE <br /><span style=""font-weight: normal;"">(please include a short summary of what happened at the station. This is what the physician at FDE will read.)</span></p></div>",,,,,,,,y,,,,,
+checkout_audio,audiologyent,,text,"Audiology Check Out Time
+
+Please click ""now"".",,,datetime_mdy,,,,,y,,,,,

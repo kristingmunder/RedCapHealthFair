@@ -1,0 +1,101 @@
+field_name,form_name,section_header,field_type,field_label,select_choices_or_calculations,field_note,text_validation_type_or_show_slider_number,text_validation_min,text_validation_max,identifier,branching_logic,required_field,custom_alignment,question_number,matrix_group_name,matrix_ranking,field_annotation
+pt_sum_2,triage,,descriptive,"<div class=""rich-text-field-label""><table style=""border-collapse: collapse; width: 100%;"" border=""1""> <tbody> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Name:</span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;""> </span><span style=""font-weight: normal;"">[last_name] , [first_name]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">DOB: </span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080; font-weight: 400;"">[birthday]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Age:</span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;""> </span><span style=""font-weight: normal;"">[age]</span></td> </tr> <tr style=""height: 17px;""> <td style=""width: 50%; height: 17px;""><span style=""color: #000080;"">Record_id: </span></td> <td style=""width: 50%; height: 17px;""><span style=""color: #000080; font-weight: 400;"">[record_id]</span></td> </tr> </tbody> </table> <p> </p></div>",,,,,,,,,,,,,
+triage_intro,triage,,descriptive,"""We are going to ask you some questions to determine which stations you'll benefit most from.""
+
+Note to volunteer: check yes to any station that the patient has expressed an interest in attending per the paper form.",,,,,,,,,,,,,
+preferences,triage,,checkbox,"On the paper form, which of the stations did the patient indicate that he/she wanted to attend today?
+
+If no paper form is filled out, please ask the patient if they would like to attend the following stations:","9, Point of Care - Glucose/ Lipids | 1, Audiology | 2, Dental | 3, Dermatology | 4, HIV/Hep C | 5, Memory Screening | 6, (only for males) Men's Health | 7, Ophthalmology | 8, (only for females) Women's Health",,,,,,,y,,,,,
+fmx_diabetes,triage,Point of Care (POC) - Glucose and Lipids,yesno,"Do you have a first degree relative (parent, sibling, child) who has diabetes?",,,,,,,[age] < 40 AND ([race] = '1' OR [race] = '4' OR [race] = '8' OR [race] = '9'),y,,,,,
+hx_gestational_diabetes,triage,,yesno,Do you have a history of gestational diabetes during any of your pregnancies?,,,,,,,[sex] = '2' AND [age] < 40 AND ([race] = '1' OR [race] = '4' OR [race] = '8' OR [race] = '9'),y,,,,,
+hx_pcos,triage,,yesno,Do you have a history of PCOS (Polycystic ovarian syndrome)?,,,,,,,[sex] = '2' AND [age] < 40 AND ([race] = '1' OR [race] = '4' OR [race] = '8' OR [race] = '9'),y,,,,,
+glucose_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Point of Care"" station to check your sugar and cholesterol.""
+
+Click YES.","1, Yes",,,,,,[age] >= 40 or [race] = '2' or [race] = '3' or [race] = '5' or [race] = '6' or [race] = '7' or [fmx_diabetes] = '1' or [hx_gestational_diabetes] = '1' or [hx_pcos] = '1' or [preferences(9)] = '1',y,,,,,
+ipss,triage,Men's Health,yesno,"In the past month, have you had any difficulties with urination? (weak stream, difficulty urinating, frequency, urgency, pain with urination, incomplete emptying)
+
+Check 'Yes' if he says yes to any of the questions.",,,,,,,[sex] = '1' AND [preferences(6)] = '0',y,,,,,
+male_exam_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Men's Health"" station.""
+
+Click YES.","1, Yes",,,,,,[sex] = '1' AND [age] > 50 OR ([ipss] = '1' or [preferences(6)] = '1'),y,,,,,
+female_exam_station,triage,Women's Health,radio,"""Based on the information you provided, we recommend that you go to the ""Women's Health"" station.""
+
+Click YES.","1, Yes",,,,,,[sex] = '2' AND (([age] >= 21 AND [age] <= 65) or [preferences(8)] = '1'),y,,,,,
+request_psyc,triage,Mental Health Screening,yesno,Would you like to speak to a mental health professional today?,,,,,,,,y,,,,,
+truthfully,triage,,descriptive,We are going to ask some questions that we ask all patients to assess your mood. Please answer them as truthfully as you can.,,,,,,,[request_psyc] = '0',,,,,,
+nervous_anxious,triage,"Over the last 2 weeks, how often have you been bothered by the following problems? ",radio,"Feeling nervous, anxious or on edge","0, Not at all | 1, Several days | 2, More days than not | 3, Nearly every day",,,,,,[request_psyc] = '0',y,,,phq_4,,
+worrying,triage,,radio,Not being able to stop or control worrying,"0, Not at all | 1, Several days | 2, More days than not | 3, Nearly every day",,,,,,[request_psyc] = '0',y,,,phq_4,,
+depressed_hopeless,triage,,radio,"Feeling down, depressed or hopeless","0, Not at all | 1, Several days | 2, More days than not | 3, Nearly every day",,,,,,[request_psyc] = '0',y,,,phq_4,,
+little_interest,triage,,radio,Little interest or pleasure in doing things,"0, Not at all | 1, Several days | 2, More days than not | 3, Nearly every day",,,,,,[request_psyc] = '0',y,,,phq_4,,
+alcohol,triage,"<div class=""rich-text-field-label""></div>",radio,Do you drink alcohol?,"1, Yes | 2, No | 3, Previously (>1 year ago)",,,,,,,y,,,,,
+cage1,triage,CAGE Questionnaire,radio,Have you ever felt you should cut down on your drinking?,"1, Yes | 2, No",,,,,,[alcohol] = '1',y,,,cage,,
+cage2,triage,,radio,Have people annoyed you by criticizing your drinking?,"1, Yes | 2, No",,,,,,[alcohol] = '1',y,,,cage,,
+cage3,triage,,radio,Have you ever felt bad or guilty about your drinking?,"1, Yes | 2, No",,,,,,[alcohol] = '1',y,,,cage,,
+cage4,triage,,radio,Have you ever had a drink first thing in the morning to steady your nerves or get rid of a hangover (eye-opener)?,"1, Yes | 2, No",,,,,,[alcohol] = '1',y,,,cage,,
+gender_dysphoria,triage,"<div class=""rich-text-field-label""></div>",descriptive,"Patient's sex at birth: [sex]
+Gender dysphoric?: [dysphoric]
+Specified gender: [specify_gender]",,,,,,,[dysphoric] = '1' AND [age] > 1000,,,,,,
+dysphoric,triage,,yesno,"Are you experiencing significant distress or impairment in social, occupational, or other important areas of functioning?",,,,,,,[different_sex(1)] = '1' AND [age] >1000,y,,,,,
+mental_health_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Mental Health"" station.""
+
+Click YES.","1, Yes",,,,,,[nervous_anxious] = '1' or [nervous_anxious] = '2' or [nervous_anxious] = '3' or [worrying] = '1' or [worrying] = '2' or [worrying] = '3' or [depressed_hopeless] = '1' or [depressed_hopeless] = '2' or [depressed_hopeless] = '3' or [little_interest] = '1' or [little_interest] = '2' or [little_interest] = '3' or [request_psyc] = '1' or [dysphoric] = '1' or ([cage1] = '1' AND [cage2] = '1') or ([cage3] = '1' AND [cage4] = '1') or ([cage1] = '1' AND [cage3] = '1') or ([cage1] = '1' AND [cage4] = '1') or ([cage2] = '1' AND [cage3] = '1') or ([cage2] = '1' AND [cage4] = '1') or [request_psyc] = '1',y,,,,,
+memory_problems,triage,Memory Screening,yesno,Do you have any problems with your memory?,,,,,,,[preferences(5)] = '0' AND [age] >= 50,y,,,,,
+do_you_care_for_anyone_who,triage,,yesno,Do you care for anyone who has any problems with memory?,,,,,,,[preferences(5)] = '0' AND [age] >= 50 AND [age] > 1000,y,,,,,
+memory_screening_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Memory Screening"" station""
+
+Click YES.","1, Yes",,,,,,[memory_problems] = '1' or [preferences(5)] = '1' or [age] > 60,y,,,,,
+fallen_past_year,triage,Balance and Strength Assessment,yesno,Have you fallen or had a near fall in the last year?,,,,,,,[age] < 65,y,,,,,
+medications_fall,triage,,yesno,Are you currently taking more than 3 medications daily?,,,,,,,[age] < 65,y,,,,,
+assisted_device,triage,,yesno,"Do you use or have you used an assisted device (cane, walker, crutches, etc.) to walk inside or out of the home?",,,,,,,[age] < 65,y,,,,,
+send_to_pt,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Balance and Strength Assessment"" station to evaluate fall risk.""
+
+Click YES.","1, Yes",,,,,,[assisted_device] = '1' or [medications_fall] = '1' or [fallen_past_year] = '1' or [age] >= 65,y,,,,,
+menopause,triage,Bone Density,yesno,Have you had menopause?,,,,,,,[sex] = '2' AND [age] < 65,y,,,,,
+atraumatic_fracture,triage,,yesno,Do you have a history of fracture which was not associated with a trauma?,,,,,,,([sex] = '1' and [age] >= 50 and [age] <= 69) OR ([sex] = '2' AND [menopause] = '1'),y,,,,,
+long_term_steroid_meds,triage,,yesno,Do you take long-term corticosteroid (steroid) medications?,,,,,,,([sex] = '1' and [age] >= 50 and [age] <= 69) OR ([sex] = '2' AND [menopause] = '1'),y,,,,,
+rheumatoid_arthritis,triage,,yesno,Do you have a history of rheumatoid arthritis?,,,,,,,([sex] = '1' and [age] >= 50 and [age] <= 69) OR ([sex] = '2' AND [menopause] = '1'),y,,,,,
+bone_density_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Bone Density"" station to evaluate bone health.""
+
+Click YES.","1, Yes",,,,,,([sex] = '2' and [age] >= 65) or ([sex] = '1' and [age] >= 70) or [atraumatic_fracture] = '1' or [long_term_steroid_meds] = '1' or [rheumatoid_arthritis] = '1',y,,,,,
+with_minors,triage,Pediatric Education,yesno,Do you live with or care for children under the age of 18?,,,,,,,,y,,,,,
+peds_education_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Pediatric Education"" station to get information about child safety and health""
+
+Click YES.","1, Yes",,,,,,[with_minors] = '1',y,,,,,
+hearing,triage,Audiology Screening,yesno,Do you have hearing loss?,,,,,,,[age] < 50 AND [preferences(1)] = '0',y,,,,,
+tinnitus,triage,,yesno,"Do you hear ringing, static, buzzing, or other noises in your ears?",,,,,,,[age] < 50 AND [preferences(1)] = '0',y,,,,,
+loud_exposure,triage,,yesno,"Do you have a history of exposure to loud noise (power tools, guns, music)?",,,,,,,[age] < 50 AND [preferences(1)] = '0',y,,,,,
+audiology_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Audiology"" station to screen for hearing loss.""
+
+Click YES.","1, Yes",,,,,,[hearing] = '1' or [tinnitus] = '1' or [loud_exposure] = '1' or [age] >= 50 or [preferences(1)] = '1',y,,,,,
+derm_risk,triage,Dermatology,yesno,"Do you have any of the following: personal or family history of skin cancer, suspicious moles or rashes?",,,,,,,[preferences(3)] = '0',y,,,,,
+dermatology_station,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Dermatology"" station.""
+
+Click YES.","1, Yes",,,,,,[derm_risk] = '1' or [preferences(3)] = '1',y,,,,,
+crc_history_under50,triage,Colorectal Cancer Screening,yesno,"<div class=""rich-text-field-label""><p>Do you have a family history of colorectal cancer?</p></div>",,,,,,,[age] < 50,,,,,,
+colon_cancer_screen,triage,,radio,"""Based on the information you provided, we recommend that you go to the ""Colorectal Cancer Screening"" station.""
+
+Click YES.","1, Yes",,,,,,[age] >= 50 or [crc_history_under50] = 1,y,,,,,
+hiv_agree_to_test,triage,HIV & Hep C Screening,radio,"We recommend all adults (> 18 years) be referred for HIV & Hepatitis C screening. 
+
+Click Yes.","1, Yes", ,,,,,[age] >= 18,y,,,,,
+hepc_screen,triage,,radio,"We recommend all adults born between 1945 to 1965 or anyone who wants screening to undergo Hepatitis C screening. 
+
+Click Yes.","1, Yes",,,,,,[age] > 1000,y,,,,,
+dental_screening,triage,Dental Screening Station,radio,"Patient indicated that they wanted a dental screening today.
+
+Click YES.","0, Yes",,,,,,[preferences(2)] = '1',y,,,,,
+ophthalmology_station,triage,Ophthalmology Station,radio,"""Based on the information you provided, we recommend that you go to the ""Ophthalmology"" station.""
+
+Click YES.","1, Yes",,,,,,[preferences(7)] = '1',y,,,,,
+ep_triage,triage,"<div class=""rich-text-field-label""><p>Emergency Preparedness</p></div>",radio,"<div class=""rich-text-field-label""><p>All patients should be notified of the emergency preparedness station that can help them learn about CPR, firearm safety, and hurricane preparedness. Please let the patient know and circle/highlight on their map.</p></div>","1, Yes",,,,,,,y,,,,,
+comments_for_registration,triage,,text,Comments for Registration,,,,,,,,,,,,,
+triage_time_stamp,triage,,text,"Triage Time Stamp
+
+Please click ""Now"".",,,datetime_mdy,,,,,y,,,,,@NOW @READONLY
+reminder_2,triage,,checkbox,"<u>REMINDER</u>
+1. Circle the appropriate stations in both the booklet and the map where the patient has been triaged
+
+2. Highlight <u>Vitals and Final Doctor Evaluation</u> as required stations.","1, Done?",,,,,,,,,,,,
+triage_summary,triage,Summary,descriptive,"Triage Summary:
+
+<table border=""1"" style=""border-collapse: collapse; border: 1px solid black;""> <thead> <tr> <th style=""padding: 4px; background: lightgray; text-align: center; font-weight: bold; vertical-align: middle;""> Station </th> <th style=""padding: 4px; background: lightgray; text-align: center; font-weight: bold; vertical-align: middle;""> Go to? </th> </tr> </thead> <tbody> <tr> <td style=""padding: 4px;""> Vitals Station </td> <td style=""padding: 4px;""> Yes </td> </tr> <tr> <td style=""padding: 4px;""> Emergency Preparedness Station</td> <td style=""padding: 4px;""> [ep_triage] </td> </tr> <tr> <td style=""padding: 4px;""> POC - Glucose and Lipid Station </td> <td style=""padding: 4px;""> [glucose_station] </td> </tr> <tr> <td style=""padding: 4px;""> Men's Health Station </td> <td style=""padding: 4px;""> [male_exam_station] </td> </tr> <tr> <td style=""padding: 4px;""> Women's Health Station </td> <td style=""padding: 4px;""> [female_exam_station] </td> </tr> <tr> <td style=""padding: 4px;""> Mental Health Station </td> <td style=""padding: 4px;""> [mental_health_station] </td> </tr> <tr> <td style=""padding: 4px;""> Memory Screening Station </td> <td style=""padding: 4px;""> [memory_screening_station] </td> </tr> <tr> <td style=""padding: 4px;""> Balance and Strength Assessment </td> <td style=""padding: 4px;""> [send_to_pt] </td> </tr> <tr> <td style=""padding: 4px;""> Bone Density Station </td> <td style=""padding: 4px;""> [bone_density_station] </td> </tr> <tr> <td style=""padding: 4px;""> Pediatrics Education Station</td> <td style=""padding: 4px;""> [peds_education_station] </td> </tr> <tr> <td style=""padding: 4px;""> Audiology Screening </td> <td style=""padding: 4px;""> [audiology_station] </td> </tr> <tr> <td style=""padding: 4px;""> Dermatology Station </td> <td style=""padding: 4px;""> [dermatology_station] </td> </tr> <tr> <td style=""padding: 4px;""> Colorectal Cancer Screening </td> <td style=""padding: 4px;""> [colon_cancer_screen] </td> </tr> <tr> <td style=""padding: 4px;""> HIV Screening</td> <td style=""padding: 4px;""> [hiv_agree_to_test] </td> </tr> <tr> <td style=""padding: 4px;""> Hepatitis C Screening </td> <td style=""padding: 4px;""> [hepc_screen] </td> </tr> <tr> <td style=""padding: 4px;""> Dental Screening </td> <td style=""padding: 4px;""> [dental_screening] </td> </tr> <tr> <td style=""padding: 4px;""> Ophthalmology Station </td> <td style=""padding: 4px;""> [ophthalmology_station] </td> </tr>  <tr> <td style=""padding: 4px;"">  Final Doctor Evaluation</td> <td style=""padding: 4px;""> Yes </td> </tr> </tbody> </table>",,,,,,,,,,,,,
