@@ -23,11 +23,11 @@ def load_config() -> dict:
     return config
 
 
-def check_data_dir():
-    if os.path.exists(DATA_DICTIONARY_DIR):
+def check_data_dir(data_dir=DATA_DICTIONARY_DIR):
+    if os.path.exists(data_dir):
         return
 
-    os.makedirs(DATA_DICTIONARY_DIR)
+    os.makedirs(data_dir)
 
 
 def json_to_csv(
@@ -105,7 +105,7 @@ def save_instrument_lists(
         instruments: List[pd.DataFrame],
         directory: str = DATA_DICTIONARY_DIR):
     """Take our instruments and save them as csv"""
-    check_data_dir()
+    check_data_dir(directory)
     for instrument_df in instruments:
         instrument_name: str = list(set(instrument_df['form_name']))[0]
         instrument_csv_file: str = f'{directory}/{instrument_name}.csv'
@@ -113,11 +113,13 @@ def save_instrument_lists(
         json_to_csv(json_data, instrument_csv_file)
 
 
-def read_csv_instruments_df() -> List[pd.DataFrame]:
-    dir_all_files: List[str] = os.listdir(DATA_DICTIONARY_DIR)
+def read_csv_instruments_df(
+        dir: str = DATA_DICTIONARY_DIR
+        ) -> List[pd.DataFrame]:
+    dir_all_files: List[str] = os.listdir(dir)
     csv_files = [file for file in dir_all_files if '.csv' in file]
     instrument_dfs = [
-            pd.read_csv(f'{DATA_DICTIONARY_DIR}/{file}') for file in csv_files
+            pd.read_csv(f'{dir}/{file}') for file in csv_files
             ]
     return instrument_dfs
 

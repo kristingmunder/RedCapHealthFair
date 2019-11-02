@@ -16,6 +16,8 @@ from typing import List, Any
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
 
+DATA_DICTIONARY_TEST_DIR = f'{DataSync.DATA_DICTIONARY_DIR}-test'
+
 
 def test_load_config():
     config = DataSync.load_config()
@@ -25,12 +27,12 @@ def test_load_config():
 
 
 def test_check_data_dir():
-    if os.path.isdir(DataSync.DATA_DICTIONARY_DIR):
-        shutil.rmtree(DataSync.DATA_DICTIONARY_DIR)
+    if os.path.isdir(DATA_DICTIONARY_TEST_DIR):
+        shutil.rmtree(DATA_DICTIONARY_TEST_DIR)
 
-    DataSync.check_data_dir()
+    DataSync.check_data_dir(DATA_DICTIONARY_TEST_DIR)
 
-    assert os.path.isdir(DataSync.DATA_DICTIONARY_DIR)
+    assert os.path.isdir(DATA_DICTIONARY_TEST_DIR)
 
 
 def test_json_to_cvs():
@@ -73,11 +75,11 @@ def test_split_instrument_dataframe():
 
 
 def test_save_instrument_list():
-    dir: str = DataSync.DATA_DICTIONARY_DIR
+    dir: str = DATA_DICTIONARY_TEST_DIR
 
     df = DataSync.download_data_df()
     list_df = DataSync.split_instrument_dataframe(df)
-    DataSync.save_instrument_lists(list_df)
+    DataSync.save_instrument_lists(list_df, dir)
 
     dir_all_files: List[str] = os.listdir(dir)
     dir_files: List[str] = [
@@ -95,7 +97,7 @@ def test_save_instrument_list():
 
 
 def test_read_csv_instrument_df():
-    dir: str = DataSync.DATA_DICTIONARY_DIR
+    dir: str = DATA_DICTIONARY_TEST_DIR
 
     n_csv_files: int = len([
         file for file in os.listdir(dir)
@@ -103,19 +105,25 @@ def test_read_csv_instrument_df():
             ])
 
     expected: int = n_csv_files
-    observed: int = len(DataSync.read_csv_instruments_df())
+    observed: int = len(DataSync.read_csv_instruments_df(dir))
     assert expected == observed
 
 
 def test_compile_instrument_dataframe():
+    dir: str = DATA_DICTIONARY_TEST_DIR
     num_entries: int = sum([
         instrument_df.shape[0]
-        for instrument_df in DataSync.read_csv_instruments_df()
+        for instrument_df in DataSync.read_csv_instruments_df(dir)
         ])
 
-    instrument_dfs: List[pd.DataFrame] = DataSync.read_csv_instruments_df()
+    instrument_dfs: List[pd.DataFrame] = DataSync.read_csv_instruments_df(dir)
     data_dictionary: pd.DataFrame = DataSync.compile_instrument_dataframes(
             instrument_dfs
             )
 
     assert data_dictionary.shape[0] == num_entries
+
+
+# Probably should create a test suite for this
+def test_end():
+    shutil.rmtree(DATA_DICTIONARY_TEST_DIR)
