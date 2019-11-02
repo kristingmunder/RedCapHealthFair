@@ -57,23 +57,27 @@ def json_to_csv(
     return pd_data
 
 
-def upload_to_test_project():
-    data = pd.read_csv(DATA_DICTIONARY_FILE_PATH)
+def upload_data_df(data_dictionary: pd.DataFrame) -> requests.Response:
     config = load_config()
     redcap_url = 'https://redcap.miami.edu/api/'
 
-    project_name = "Med IT Test Project"
+    master: bool = 'master' in config.keys()
+    cfg_test: str = config['test_token']
+    cfg_main: str = config['main_token']
+    project_name = "Med IT Test Project" if not master else "New REDCap"
+    project_token = cfg_test if not master else cfg_main
     request_data = {
-            'token': config['test_token'],
+            'token': project_token,
             'content': 'metadata',
             'format': 'json',
-            'data': data.to_json(orient='records'),
+            'data': data_dictionary.to_json(orient='records'),
             'returnFormat': 'json'
             }
 
     print(f"Attempting to upload the data dictionary to the {project_name}...")
     response = requests.post(redcap_url, request_data)
     print(response.text)
+    return response
 
 
 def download_data_df(main=False) -> pd.DataFrame:
@@ -135,22 +139,3 @@ def compile_instrument_dataframes(
                 )
 
     return data_dictionary
-
-
-def upload_data_dictionary():
-    config = load_config()
-    data = pd.read_csv(DATA_DICTIONARY_FILE_PATH)
-    redcap_url = 'https://redcap.miami.edu/api/'
-
-    project_name = "Med IT Test project"
-    request_data = {
-            'token': config['test_token'],
-            'content': 'metadata',
-            'format': 'json',
-            'data': data.to_json(orient='records'),
-            'returnFormat': 'json'
-            }
-
-    print(f"Attempting to upload the data dictionary to {project_name}...")
-    response = requests.post(redcap_url, request_data)
-    print(response.text)
