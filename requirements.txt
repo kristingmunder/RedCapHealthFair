@@ -1,2 +1,5 @@
+pytest
 pandas
 requests
+flake8
+mypy
