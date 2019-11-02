@@ -8,3 +8,13 @@ the University of Miami Miller School of Medicine Department of Community
 Service.
 
 # Getting Started
+- Install the required programs
+- Fork the repository
+- Setup your configuration file
+
+## Editing
+- Synchronize your current version with MedIT Test Project
+- Login to redcap and make your changes on the MedIT Test project
+- Update the repository data by downloading back into the repo
+- Push changes via git to the cloud GitHub
+- Make a pull request
