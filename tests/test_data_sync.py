@@ -9,14 +9,14 @@ Created by Kevin Davis
 import os
 import json
 import pandas as pd
-import scripts.lib as lib
+import scripts.DataSync as DataSync
 
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
 
 
 def test_load_config():
-    config = lib.load_config()
+    config = DataSync.load_config()
     config_keys = list(config.keys())
     assert "main_token" in config_keys
     assert "test_token" in config_keys
@@ -36,7 +36,15 @@ def test_json_to_cvs():
     print(json_input)
 
     file = f'{dir_name}/temp.csv'
-    output = lib.json_to_csv(json_input, file_name=file)
+    output = DataSync.json_to_csv(json_input, file_name=file)
     expected = pd.DataFrame(input)
 
     assert expected.equals(output)
+
+
+def test_download_main_project():
+
+    expected = type(pd.DataFrame())
+    observed = type(DataSync.download_main_project())
+
+    assert expected == observed
