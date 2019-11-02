@@ -4,11 +4,14 @@ import json
 import requests
 import pandas as pd
 
+from typing import List
+
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
 
 CONFIG_FILE_PATH = f'{dir_name}/../config.json'
-DATA_DICTIONARY_FILE_PATH = f'{dir_name}/../DataDictionary.csv'
+DATA_DICTIONARY_DIR = f'{dir_name}/../data'
+DATA_DICTIONARY_FILE_PATH = f'{DATA_DICTIONARY_DIR}/DataDictionary.csv'
 
 
 def load_config() -> dict:
@@ -90,6 +93,16 @@ def download_data_df(main=False) -> pd.DataFrame:
 def split_instrument_dataframe(df: pd.DataFrame) -> list:
     instrument_list: list = list(set(df['form_name']))
     return [df[df['form_name'] == x] for x in instrument_list]
+
+
+def save_instrument_lists(
+        instruments: List[pd.DataFrame],
+        directory: str = DATA_DICTIONARY_DIR):
+    """Take our instruments and save them as csv"""
+    for instrument_df in instruments:
+        instrument_name: str = list(set(instrument_df['form_name']))[0]
+        instrument_csv_file: str = f'{directory}/{instrument_name}.csv'
+        instrument_df.to_csv(instrument_csv_file, index=False)
 
 
 def upload_data_dictionary():

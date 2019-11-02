@@ -60,3 +60,24 @@ def test_split_instrument_dataframe():
     observed = type(instrument_list)
     assert observed == expected
 
+
+def test_save_instrument_list():
+    dir: str = DataSync.DATA_DICTIONARY_DIR
+
+    df = DataSync.download_data_df()
+    list_df = DataSync.split_instrument_dataframe(df)
+    DataSync.save_instrument_lists(list_df)
+
+    dir_all_files: List[str] = os.listdir(dir)
+    dir_files: List[str] = [
+            file for file in dir_all_files
+            if os.path.isfile(os.path.join(dir, file))]
+    dir_csv_files: List[str] = [
+            file for file in dir_files
+            if '.csv' in file
+            ]
+
+    expected: int = len(list_df)
+    observed: int = len(dir_csv_files)
+
+    assert expected == observed
