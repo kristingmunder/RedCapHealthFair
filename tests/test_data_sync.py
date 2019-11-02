@@ -50,6 +50,7 @@ def test_json_to_cvs():
     output = DataSync.json_to_csv(json_input, file_name=file)
     expected = pd.DataFrame(input)
 
+    os.remove(file)
     assert expected.equals(output)
 
 
@@ -104,3 +105,7 @@ def test_read_csv_instrument_df():
     expected: int = n_csv_files
     observed: int = len(DataSync.read_csv_instruments_df())
     assert expected == observed
+
+
+def test_compile_instrument_dataframe():
+    pass

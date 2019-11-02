@@ -53,7 +53,6 @@ def json_to_csv(
             writer.writerow(values)
 
     pd_data = pd.read_csv(csv_name)
-    os.remove(file_name)
 
     return pd_data
 
@@ -110,7 +109,8 @@ def save_instrument_lists(
     for instrument_df in instruments:
         instrument_name: str = list(set(instrument_df['form_name']))[0]
         instrument_csv_file: str = f'{directory}/{instrument_name}.csv'
-        instrument_df.to_csv(instrument_csv_file, index=False)
+        json_data = instrument_df.to_json(orient='records')
+        json_to_csv(json_data, instrument_csv_file)
 
 
 def read_csv_instruments_df() -> List[pd.DataFrame]:
@@ -120,6 +120,19 @@ def read_csv_instruments_df() -> List[pd.DataFrame]:
             pd.read_csv(f'{DATA_DICTIONARY_DIR}/{file}') for file in csv_files
             ]
     return instrument_dfs
+
+
+def compile_instrument_dataframes(
+        instrument_dataframes: List[pd.DataFrame]
+        ) -> pd.DataFrame:
+    data_dictionary: pd.DataFrame = instrument_dataframes[0]
+    for instrument_dataframe in instrument_dataframes[1:]:
+        data_dictionary = data_dictionary.append(
+                instrument_dataframe,
+                ignore_index=True
+                )
+
+    return data_dictionary
 
 
 def upload_data_dictionary():
