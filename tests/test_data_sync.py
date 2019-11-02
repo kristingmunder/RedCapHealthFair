@@ -108,4 +108,14 @@ def test_read_csv_instrument_df():
 
 
 def test_compile_instrument_dataframe():
-    pass
+    num_entries: int = sum([
+        instrument_df.shape[0]
+        for instrument_df in DataSync.read_csv_instruments_df()
+        ])
+
+    instrument_dfs: List[pd.DataFrame] = DataSync.read_csv_instruments_df()
+    data_dictionary: pd.DataFrame = DataSync.compile_instrument_dataframes(
+            instrument_dfs
+            )
+
+    assert data_dictionary.shape[0] == num_entries
