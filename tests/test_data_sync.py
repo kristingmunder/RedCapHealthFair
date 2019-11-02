@@ -8,6 +8,7 @@ Created by Kevin Davis
 
 import os
 import json
+import shutil
 import pandas as pd
 import scripts.DataSync as DataSync
 from typing import List, Any
@@ -21,6 +22,15 @@ def test_load_config():
     config_keys = list(config.keys())
     assert "main_token" in config_keys
     assert "test_token" in config_keys
+
+
+def test_check_data_dir():
+    if os.path.isdir(DataSync.DATA_DICTIONARY_DIR):
+        shutil.rmtree(DataSync.DATA_DICTIONARY_DIR)
+
+    DataSync.check_data_dir()
+
+    assert os.path.isdir(DataSync.DATA_DICTIONARY_DIR)
 
 
 def test_json_to_cvs():

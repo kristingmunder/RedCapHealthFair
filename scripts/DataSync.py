@@ -23,6 +23,13 @@ def load_config() -> dict:
     return config
 
 
+def check_data_dir():
+    if os.path.exists(DATA_DICTIONARY_DIR):
+        return
+
+    os.makedirs(DATA_DICTIONARY_DIR)
+
+
 def json_to_csv(
         json_text,
         file_name=DATA_DICTIONARY_FILE_PATH
@@ -99,6 +106,7 @@ def save_instrument_lists(
         instruments: List[pd.DataFrame],
         directory: str = DATA_DICTIONARY_DIR):
     """Take our instruments and save them as csv"""
+    check_data_dir()
     for instrument_df in instruments:
         instrument_name: str = list(set(instrument_df['form_name']))[0]
         instrument_csv_file: str = f'{directory}/{instrument_name}.csv'
