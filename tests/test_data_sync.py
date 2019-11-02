@@ -10,6 +10,7 @@ import os
 import json
 import pandas as pd
 import scripts.DataSync as DataSync
+from typing import List, Any
 
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
@@ -48,3 +49,14 @@ def test_download_data_df():
     observed = type(DataSync.download_data_df())
 
     assert expected == observed
+
+
+def test_split_instrument_dataframe():
+
+    temp_list: List[Any] = []
+    df = DataSync.download_data_df()
+    instrument_list = DataSync.split_instrument_dataframe(df)
+    expected = type(temp_list)
+    observed = type(instrument_list)
+    assert observed == expected
+

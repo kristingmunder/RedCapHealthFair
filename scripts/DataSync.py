@@ -87,6 +87,11 @@ def download_data_df(main=False) -> pd.DataFrame:
     return pd.read_json(response.text)
 
 
+def split_instrument_dataframe(df: pd.DataFrame) -> list:
+    instrument_list: list = list(set(df['form_name']))
+    return [df[df['form_name'] == x] for x in instrument_list]
+
+
 def upload_data_dictionary():
     config = load_config()
     data = pd.read_csv(DATA_DICTIONARY_FILE_PATH)
