@@ -4,7 +4,7 @@
         "form_name": "hivhep_c_screening_new",
         "section_header": "",
         "field_type": "descriptive",
-        "field_label": "<table style=\"border-collapse: collapse; width: 100%;\" border=\"1\"> <tbody> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Name:</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">\u00a0</span><span style=\"font-weight: normal;\"><span name=\"last_name\">[last_name]</span> , <span name=\"first_name\">[first_name]</span></span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">DOB:\u00a0</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080; font-weight: 400;\">[birthday]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Age:</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">\u00a0</span><span style=\"font-weight: normal;\">[age]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Record_id:\u00a0</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080; font-weight: 400;\">[record_id]</span></td> </tr> </tbody> </table> <p>\u00a0</p>",
+        "field_label": "<div class=\"rich-text-field-label\"><table style=\"border-collapse: collapse; width: 100%;\" border=\"1\"> <tbody> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Name:</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">\u00a0</span><span style=\"font-weight: normal;\">[last_name] , [first_name]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">DOB:\u00a0</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080; font-weight: 400;\">[birthday]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Age:</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">\u00a0</span><span style=\"font-weight: normal;\">[age]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Record_id:\u00a0</span></td> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080; font-weight: 400;\">[record_id]</span></td> </tr> </tbody> </table> <p>\u00a0</p></div>",
         "select_choices_or_calculations": "",
         "field_note": "",
         "text_validation_type_or_show_slider_number": "",
@@ -440,11 +440,11 @@
         "field_annotation": ""
     },
     {
-        "field_name": "hiv_checkout_time",
+        "field_name": "hiv_checkout_time_v2",
         "form_name": "hivhep_c_screening_new",
         "section_header": "",
         "field_type": "text",
-        "field_label": "HIV Check-Out TIme\r\n\r\nPlease click \"Now\".",
+        "field_label": "HIV Check-Out TIme\n\nPlease click \"Now\".",
         "select_choices_or_calculations": "",
         "field_note": "",
         "text_validation_type_or_show_slider_number": "datetime_mdy",

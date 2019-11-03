@@ -198,25 +198,5 @@
         "matrix_group_name": "",
         "matrix_ranking": "",
         "field_annotation": ""
-    },
-    {
-        "field_name": "medit_request",
-        "form_name": "bone_density",
-        "section_header": "",
-        "field_type": "descriptive",
-        "field_label": "<div class=\"rich-text-field-label\"><p><span style=\"color: #ff0000;\"><em>Any problems with this form?</em></span> Please submit a MedIT request at the link:\u00a0<a style=\"font-family: -webkit-standard; font-weight: normal;\" href=\"https://docs.google.com/forms/d/e/1FAIpQLSdlA2Vc8iVb2AtcE_hnlcysQ5YdvqkoaK5ZV64nJn-PSK3spg/viewform\">https://docs.google.com/forms/d/e/1FAIpQLSdlA2Vc8iVb2AtcE_hnlcysQ5YdvqkoaK5ZV64nJn-PSK3spg/viewform</a></p></div>",
-        "select_choices_or_calculations": "",
-        "field_note": "",
-        "text_validation_type_or_show_slider_number": "",
-        "text_validation_min": "",
-        "text_validation_max": "",
-        "identifier": "",
-        "branching_logic": "",
-        "required_field": "",
-        "custom_alignment": "",
-        "question_number": "",
-        "matrix_group_name": "",
-        "matrix_ranking": "",
-        "field_annotation": ""
     }
 ]

@@ -40,26 +40,6 @@
         "field_annotation": "@NOW @READONLY"
     },
     {
-        "field_name": "derm_sun",
-        "form_name": "dermatology",
-        "section_header": "",
-        "field_type": "radio",
-        "field_label": "<div class=\"rich-text-field-label\"><p>How often do you wear sunscreen?</p></div>",
-        "select_choices_or_calculations": "0, Never | 1, Occasionally | 2, Couple Times a Week | 3, Daily",
-        "field_note": "",
-        "text_validation_type_or_show_slider_number": "",
-        "text_validation_min": "",
-        "text_validation_max": "",
-        "identifier": "",
-        "branching_logic": "",
-        "required_field": "y",
-        "custom_alignment": "",
-        "question_number": "",
-        "matrix_group_name": "",
-        "matrix_ranking": "",
-        "field_annotation": ""
-    },
-    {
         "field_name": "body_anterior",
         "form_name": "dermatology",
         "section_header": "",

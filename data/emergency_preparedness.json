@@ -24,7 +24,7 @@
         "form_name": "emergency_preparedness",
         "section_header": "",
         "field_type": "descriptive",
-        "field_label": "Emergency Preparedness",
+        "field_label": "EP",
         "select_choices_or_calculations": "",
         "field_note": "",
         "text_validation_type_or_show_slider_number": "",
