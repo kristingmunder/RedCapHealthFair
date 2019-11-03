@@ -10,7 +10,7 @@ import DataSync as ds
 from typing import List
 
 
-data_dictionary_df: pd.DataFrame = ds.download_data_df(main=True)
+data_dictionary_df: pd.DataFrame = ds.download_data_df(main=False)
 
 
 instrument_dfs: List[pd.DataFrame] = ds.split_instrument_dataframe(
