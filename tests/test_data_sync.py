@@ -76,6 +76,7 @@ def test_split_instrument_dataframe():
 
 def test_save_instrument_list():
     dir: str = DATA_DICTIONARY_TEST_DIR
+    ext: str = '.json'
 
     df = DataSync.download_data_df()
     list_df = DataSync.split_instrument_dataframe(df)
@@ -87,7 +88,7 @@ def test_save_instrument_list():
             if os.path.isfile(os.path.join(dir, file))]
     dir_csv_files: List[str] = [
             file for file in dir_files
-            if '.csv' in file
+            if ext in file
             ]
 
     expected: int = len(list_df)
@@ -96,16 +97,17 @@ def test_save_instrument_list():
     assert expected == observed
 
 
-def test_read_csv_instrument_df():
+def test_read_json_instrument_df():
     dir: str = DATA_DICTIONARY_TEST_DIR
+    ext: str = '.json'
 
     n_csv_files: int = len([
         file for file in os.listdir(dir)
-        if '.csv' in file
+        if ext in file
             ])
 
     expected: int = n_csv_files
-    observed: int = len(DataSync.read_csv_instruments_df(dir))
+    observed: int = len(DataSync.read_json_instruments_df(dir))
     assert expected == observed
 
 
@@ -113,10 +115,10 @@ def test_compile_instrument_dataframe():
     dir: str = DATA_DICTIONARY_TEST_DIR
     num_entries: int = sum([
         instrument_df.shape[0]
-        for instrument_df in DataSync.read_csv_instruments_df(dir)
+        for instrument_df in DataSync.read_json_instruments_df(dir)
         ])
 
-    instrument_dfs: List[pd.DataFrame] = DataSync.read_csv_instruments_df(dir)
+    instrument_dfs: List[pd.DataFrame] = DataSync.read_json_instruments_df(dir)
     data_dictionary: pd.DataFrame = DataSync.compile_instrument_dataframes(
             instrument_dfs
             )
