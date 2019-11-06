@@ -4,7 +4,7 @@ import json
 import requests
 import pandas as pd
 
-from typing import List
+from typing import List, Dict, TextIO
 
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
@@ -110,20 +110,27 @@ def save_instrument_lists(
         directory: str = DATA_DICTIONARY_DIR):
     """Take our instruments and save them as csv"""
     check_data_dir(directory)
+    ext: str = 'json'  # 'csv'
     for instrument_df in instruments:
         instrument_name: str = list(set(instrument_df['form_name']))[0]
-        instrument_csv_file: str = f'{directory}/{instrument_name}.csv'
+        instrument_file: str = f'{directory}/{instrument_name}.{ext}'
         json_data = instrument_df.to_json(orient='records')
-        json_to_csv(json_data, instrument_csv_file)
+        dict: Dict = json.loads(json_data)
+        json_data = json.dumps(dict, indent=4)
+        filehandle: TextIO = open(instrument_file, 'w')
+        filehandle.write(json_data)
+        filehandle.close()
+        # json_to_csv(json_data, instrument_csv_file)
 
 
-def read_csv_instruments_df(
+def read_json_instruments_df(
         dir: str = DATA_DICTIONARY_DIR
         ) -> List[pd.DataFrame]:
+    ext: str = '.json'
     dir_all_files: List[str] = os.listdir(dir)
-    csv_files = [file for file in dir_all_files if '.csv' in file]
+    csv_files = [file for file in dir_all_files if ext in file]
     instrument_dfs = [
-            pd.read_csv(f'{dir}/{file}') for file in csv_files
+            pd.read_json(f'{dir}/{file}') for file in csv_files
             ]
     return instrument_dfs
 
