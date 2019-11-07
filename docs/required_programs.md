@@ -79,5 +79,10 @@ $$ [Virtual Environments](https://virtualenv.pypa.io/en/latest/) *Recommended*
 Installing this is not required, but recommended. Because python exists in
 different versions, it is nice to let your computer know what specific version
 you are working with. There are python libraries and code that we use that is
-written by others in different versions and using virtual environments ensures
-that we get the code that matches the current version of Python we use.
+written by others using different versions and using virtual environments
+ensures that we get the code that matches the current version of Python we
+use.
+
+Run the following command to install virtual environments for python
+
+`python -m pip install virtualenvwrapper`
