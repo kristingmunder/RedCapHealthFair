@@ -86,7 +86,9 @@ def json_to_csv(
     return pd_data
 
 
-def upload_data_df(data_dictionary: pd.DataFrame) -> requests.Response:
+def upload_data_df(
+        data_dictionary: pd.DataFrame,
+        force_test: bool = False) -> requests.Response:
     config = load_config()
     redcap_url = 'https://redcap.miami.edu/api/'
 
@@ -94,7 +96,10 @@ def upload_data_df(data_dictionary: pd.DataFrame) -> requests.Response:
     cfg_test: str = config['test_token']
     cfg_main: str = config['main_token']
     project_name = "Med IT Test Project" if not master else "New REDCap"
-    project_token = cfg_test if not master else cfg_main
+    if force_test:
+        project_token = cfg_test
+    else:
+        project_token = cfg_test if not master else cfg_main
     request_data = {
             'token': project_token,
             'content': 'metadata',
