@@ -97,7 +97,10 @@ def download_data_df(main=False) -> pd.DataFrame:
     print(f"Downloading dictionary from {project_name}...")
     response = requests.post(redcap_url, request_data)
 
-    return pd.read_json(response.text)
+    temp_file: str = './temp.csv'
+    result: pd.DataFrame = json_to_csv(response.text, temp_file)
+    os.remove(temp_file)
+    return result
 
 
 def split_instrument_dataframe(df: pd.DataFrame) -> list:
@@ -123,6 +126,17 @@ def save_instrument_lists(
         # json_to_csv(json_data, instrument_csv_file)
 
 
+def read_json_instrument_df(file: str) -> pd.DataFrame:
+    file_path: str = './temp.csv'
+    with open(file, 'r') as json_fp:
+        json_object: Dict = json.load(json_fp)
+        json_string: str = json.dumps(json_object)
+    json_to_csv(json_string, file_path)
+    instrument_df: pd.DataFrame = pd.read_csv(file_path)
+    os.remove(file_path)
+    return instrument_df
+
+
 def read_json_instruments_df(
         dir: str = DATA_DICTIONARY_DIR
         ) -> List[pd.DataFrame]:
@@ -130,7 +144,7 @@ def read_json_instruments_df(
     dir_all_files: List[str] = os.listdir(dir)
     csv_files = [file for file in dir_all_files if ext in file]
     instrument_dfs = [
-            pd.read_json(f'{dir}/{file}') for file in csv_files
+            read_json_instrument_df(f'{dir}/{file}') for file in csv_files
             ]
     return instrument_dfs
 
