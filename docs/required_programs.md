@@ -58,11 +58,11 @@ a variety of fields, from statistical analysis and machine learning to web
 development and basic programming. In fact, the ANKI flash card app was made
 using Python scripts. We use python scripts to automate some of the heavy
 lifting when transferring data between REDCap projects and these stored
-repositories and to run tests to ensure that any chages won't cause any
+repositories and to run tests to ensure that any changes won't cause any
 technical errors.
 
 It is important to note that we utilize Python 3. This is mentioned because
-there are some version of the python programing langauge that are distributed
+there are some version of the python programming language that are distributed
 as Python 2.7. Most Apple macOS computers come already installed with Python
 2.7, but you'll still need to follow the instructions below to ensure you have
 the appropriate version. Here we list the recommend ways to install python
@@ -70,3 +70,14 @@ based on your operating system:
 
 - Windows: `choco install python`
 - macOS: `brew install python3`
+
+If the installation was successful, you should be able to run python by simply
+typing `python` into your terminal. Then type `exit()` to quit.
+
+$$ [Virtual Environments](https://virtualenv.pypa.io/en/latest/) *Recommended*
+
+Installing this is not required, but recommended. Because python exists in
+different versions, it is nice to let your computer know what specific version
+you are working with. There are python libraries and code that we use that is
+written by others in different versions and using virtual environments ensures
+that we get the code that matches the current version of Python we use.
