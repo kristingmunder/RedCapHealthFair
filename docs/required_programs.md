@@ -3,6 +3,28 @@
 In order to begin you'll need to ensure that you have the following programs
 and software installed:
 
+## Terminals and Command Line interfaces
+
+To install the necessary software, we'll be using *Command Line Interfaces*
+(CLI). This is a computer term that contrasts with *Graphical User Interface*
+(GUI) which is what most users are familiar with; i.e., buttons, text boxes
+and graphical displays. CLIs instead can often achieve the same goals as GUIs
+but do this by typing in a series of commands. Be certain to know how to
+access your computer's CLI:
+
+- Windows 10:
+  1. Click the windows start button
+  1. type "Powershell"
+  1. Press enter
+- macOS:
+  1. Open spotlight (⌘ + space bar)
+  1. Type "Terminal"
+  1. Press enter
+
+You'll see a series of commands listed below. You can simply copy and paste
+those commands into the terminal or powershell and press enter to execute
+those commands.
+
 ## Package Managers
 
 In order to install all the software needed in a standardized and reproducible
