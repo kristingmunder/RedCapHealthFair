@@ -35,6 +35,25 @@ def test_check_data_dir():
     assert os.path.isdir(DATA_DICTIONARY_TEST_DIR)
 
 
+def test_request_data_dictionary():
+    expected = 200
+    observed = DataSync.request_data_dictionary().status_code
+
+    assert expected == observed
+
+
+def test_download_json_data():
+    assert isinstance(DataSync.download_json_data(), str)
+
+
+def test_download_data_df():
+
+    expected = type(pd.DataFrame())
+    observed = type(DataSync.download_data_df())
+
+    assert expected == observed
+
+
 def test_json_to_cvs():
 
     input = [{
@@ -54,14 +73,6 @@ def test_json_to_cvs():
 
     os.remove(file)
     assert expected.equals(output)
-
-
-def test_download_data_df():
-
-    expected = type(pd.DataFrame())
-    observed = type(DataSync.download_data_df())
-
-    assert expected == observed
 
 
 def test_split_instrument_dataframe():
@@ -86,13 +97,13 @@ def test_save_instrument_list():
     dir_files: List[str] = [
             file for file in dir_all_files
             if os.path.isfile(os.path.join(dir, file))]
-    dir_csv_files: List[str] = [
+    dir_json_files: List[str] = [
             file for file in dir_files
-            if ext in file
+            if ext in file and (file != 'order.json')
             ]
 
     expected: int = len(list_df)
-    observed: int = len(dir_csv_files)
+    observed: int = len(dir_json_files)
 
     assert expected == observed
 
@@ -119,14 +130,27 @@ def test_read_json_instruments_df():
     dir: str = DATA_DICTIONARY_TEST_DIR
     ext: str = '.json'
 
-    n_csv_files: int = len([
+    n_json_files: int = len([
         file for file in os.listdir(dir)
-        if ext in file
+        if ext in file and (file != 'order.json')
             ])
 
-    expected: int = n_csv_files
-    observed: int = len(DataSync.read_json_instruments_df(dir))
-    assert expected == observed
+    instruments: List[pd.DataFrame] = DataSync.read_json_instruments_df(dir)
+
+    expected_n_files: int = n_json_files
+    observed_n_files: int = len(instruments)
+    assert expected_n_files == observed_n_files
+
+    with open(f'{dir}/order.json', 'r') as fp_order:
+        order: List[str] = json.load(fp_order)
+
+    first_instrument: pd.DataFrame = instruments[0]
+
+    expected_first_instrument: str = order[0]
+    observed_first_instrument: str = list(
+            first_instrument['form_name'].unique()
+            )[0]
+    assert expected_first_instrument == observed_first_instrument
 
 
 def test_compile_instrument_dataframe():

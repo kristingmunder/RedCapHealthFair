@@ -75,14 +75,10 @@ def json_to_csv(
     csv_name: str = file_name
     with open(csv_name, 'w') as f:
         writer = csv.writer(f)
-        keys: list = []
-        for key in json_data[0]:
-            keys.append(key)
+        keys: List[str] = list(json_data[0].keys())
         writer.writerow(keys)
-        for j in json_data:
-            values: list = []
-            for key in j:
-                values.append(j[key])
+        for entry in json_data:
+            values: List[str] = [entry[x] for x in entry]
             writer.writerow(values)
 
     pd_data = pd.read_csv(csv_name)
@@ -113,31 +109,8 @@ def upload_data_df(data_dictionary: pd.DataFrame) -> requests.Response:
     return response
 
 
-def download_data_df(main=False) -> pd.DataFrame:
-    """This downloads the data dictionary to a dataframe"""
-    config = load_config()
-    redcap_url = 'https://redcap.miami.edu/api/'
-
-    project_name = "New REDCap" if main is True else "MedIT Test project"
-    base = config['test_token'] if main is False else config['main_token']
-    request_data = {
-            'token': base,
-            'content': 'metadata',
-            'format': 'json',
-            'returnFormat': 'json'
-            }
-
-    print(f"Downloading dictionary from {project_name}...")
-    response = requests.post(redcap_url, request_data)
-
-    temp_file: str = './temp.csv'
-    result: pd.DataFrame = json_to_csv(response.text, temp_file)
-    os.remove(temp_file)
-    return result
-
-
-def split_instrument_dataframe(df: pd.DataFrame) -> list:
-    instrument_list: list = list(set(df['form_name']))
+def split_instrument_dataframe(df: pd.DataFrame) -> List[str]:
+    instrument_list: List[str] = list(df['form_name'].unique())
     return [df[df['form_name'] == x] for x in instrument_list]
 
 
@@ -147,6 +120,14 @@ def save_instrument_lists(
     """Take our instruments and save them as csv"""
     check_data_dir(directory)
     ext: str = 'json'  # 'csv'
+
+    # Save our order.json
+    instrument_order: List[str] = [
+            x['form_name'].iloc[0] for x in instruments
+            ]
+    with open(f'{directory}/order.json', 'w') as jo:
+        json.dump(instrument_order, fp=jo, indent=4)
+
     for instrument_df in instruments:
         instrument_name: str = list(set(instrument_df['form_name']))[0]
         instrument_file: str = f'{directory}/{instrument_name}.{ext}'
@@ -159,9 +140,9 @@ def save_instrument_lists(
         # json_to_csv(json_data, instrument_csv_file)
 
 
-def read_json_instrument_df(file: str) -> pd.DataFrame:
+def read_json_instrument_df(json_file: str) -> pd.DataFrame:
     file_path: str = './temp.csv'
-    with open(file, 'r') as json_fp:
+    with open(json_file, 'r') as json_fp:
         json_object: Dict = json.load(json_fp)
         json_string: str = json.dumps(json_object)
     json_to_csv(json_string, file_path)
@@ -174,10 +155,15 @@ def read_json_instruments_df(
         dir: str = DATA_DICTIONARY_DIR
         ) -> List[pd.DataFrame]:
     ext: str = '.json'
-    dir_all_files: List[str] = os.listdir(dir)
-    csv_files = [file for file in dir_all_files if ext in file]
+    order_file: str = f'{dir}/order.json'
+    with open(order_file, 'r') as fp_order:
+        order: List[str] = json.load(fp_order)
+    json_files = [
+            f'{file_name}{ext}' for file_name in order
+            ]
+
     instrument_dfs = [
-            read_json_instrument_df(f'{dir}/{file}') for file in csv_files
+            read_json_instrument_df(f'{dir}/{file}') for file in json_files
             ]
     return instrument_dfs
 
