@@ -30,6 +30,39 @@ def check_data_dir(data_dir=DATA_DICTIONARY_DIR):
     os.makedirs(data_dir)
 
 
+def request_data_dictionary(main=False) -> requests.Response:
+    """Request the data dictionary from the REDCap API"""
+    config = load_config()
+    redcap_url = 'https://redcap.miami.edu/api/'
+
+    project_name = "New REDCap" if main is True else "MedIT Test project"
+    base = config['test_token'] if main is False else config['main_token']
+    request_data = {
+            'token': base,
+            'content': 'metadata',
+            'format': 'json',
+            'returnFormat': 'json'
+            }
+
+    print(f"Downloading dictionary from {project_name}...")
+    response = requests.post(redcap_url, request_data)
+    return response
+
+
+def download_json_data(main=False) -> str:
+    res: requests.Response = request_data_dictionary(main)
+    return res.text
+
+
+def download_data_df(main=False) -> pd.DataFrame:
+    """This downloads the data dictionary to a dataframe"""
+    temp_file: str = './temp.csv'
+    json_text: str = download_json_data(main)
+    result: pd.DataFrame = json_to_csv(json_text, temp_file)
+    os.remove(temp_file)
+    return result
+
+
 def json_to_csv(
         json_text,
         file_name=DATA_DICTIONARY_FILE_PATH
