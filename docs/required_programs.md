@@ -12,11 +12,14 @@ and graphical displays. CLIs instead can often achieve the same goals as GUIs
 but do this by typing in a series of commands. Be certain to know how to
 access your computer's CLI:
 
-- Windows 10:
+- Windows 10: Window's default command line interface is called
+  [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
+  We'll be using this to run commands in order to install the required
+  programs. The steps allow you to open PowerShell on windows
   1. Click the windows start button
   1. type "Powershell"
   1. Press enter
-- macOS:
+- macOS: on macOS we'll use the [Terminal App](https://support.apple.com/guide/terminal/welcome/mac)
   1. Open spotlight (⌘ + space bar)
   1. Type "Terminal"
   1. Press enter
@@ -33,8 +36,20 @@ managers. In short, these package managers allow you to download and install
 programs using commands rather than downloading an install from the internet.
 Follow the links below to install your package manager
 
-- Windows: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
-- macOS: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+### Windows: [Chocolatey](https://chocolatey.org)
+
+Chocolatey is a new package manager that allows user to download and install
+software by typing in commands on PowerShell use command below to install
+Chocolatey
+
+`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+
+### macOS: [Homebrew](https://brew.sh)
+
+Similar to Chocolatey, homebrew allows you to manage installed packages fro
+macOS. Use the command below to install homebrew
+
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 ## Python 3
 
