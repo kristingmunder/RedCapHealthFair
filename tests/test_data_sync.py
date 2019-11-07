@@ -99,6 +99,24 @@ def test_save_instrument_list():
 
 def test_read_json_instrument_df():
     dir: str = DATA_DICTIONARY_TEST_DIR
+    file: str = "vitals.json"
+
+    with open(f'{dir}/{file}', 'r') as fp:
+        json_data = json.load(fp)
+
+    first_variable = json_data[0]
+    keys: List[str] = list(first_variable.keys())
+    first_key: str = keys[0]
+
+    instrument_json: pd.DataFrame = DataSync.read_json_instrument_df(
+            f'{dir}/{file}')
+    first_column_name: str = instrument_json.columns.to_list()[0]
+
+    assert first_column_name == first_key
+
+
+def test_read_json_instruments_df():
+    dir: str = DATA_DICTIONARY_TEST_DIR
     ext: str = '.json'
 
     n_csv_files: int = len([
