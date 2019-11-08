@@ -86,3 +86,7 @@ use.
 Run the following command to install virtual environments for python
 
 `python -m pip install virtualenvwrapper`
+
+## Git / GitHub Desktop
+
+Git is a version control system...
