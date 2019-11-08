@@ -10,8 +10,7 @@ Service.
 ## Getting Started
 You should only need to run through these steps once.
 - Install the [required programs](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/required_programs.md)
-- Learn about git
-- Greate a GitHub account
+- Create a GitHub account
 - Fork the repository
 - Setup your configuration file
 

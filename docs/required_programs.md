@@ -1,5 +1,12 @@
 # Required Software
 
+The document will cover information about the following:
+
+- Terminals and Command Line Interfaces (CLI)
+- Package Managers (Homebrew and Chocolatey)
+- Python
+- 
+
 In order to begin you'll need to ensure that you have the following programs
 and software installed:
 
@@ -53,6 +60,10 @@ macOS. Use the command below to install homebrew
 
 ## Python 3
 
+**NOTE**: It is not expected that you know how to write python code, to use
+this system you simply need it to run the scripts. Although, knowing some code
+never hurts 😉.
+
 [Python](https://www.python.org) is a *dynamic* scripting language used in
 a variety of fields, from statistical analysis and machine learning to web
 development and basic programming. In fact, the ANKI flash card app was made
@@ -74,7 +85,7 @@ based on your operating system:
 If the installation was successful, you should be able to run python by simply
 typing `python` into your terminal. Then type `exit()` to quit.
 
-$$ [Virtual Environments](https://virtualenv.pypa.io/en/latest/) *Recommended*
+## [Virtual Environments](https://virtualenv.pypa.io/en/latest/) *Recommended*
 
 Installing this is not required, but recommended. Because python exists in
 different versions, it is nice to let your computer know what specific version
@@ -89,4 +100,38 @@ Run the following command to install virtual environments for python
 
 ## Git / GitHub Desktop
 
-Git is a version control system...
+Git is a version control system. There are plenty of resources on the web that
+give an overview of what Git is and how to use it. This section will briefly
+explain why it is used in this project. See
+[this](https://git-scm.com/video/what-is-version-control) video for an
+introduction on the importance and use of git.
+
+### What is Git?
+
+Briefly, git allows us to maintain **who** made changes to **what** portions
+of our REDCap data dictionary and **why**. REDCap currently logs who makes
+changes, however, it's logs do not tell us what, nor allow the editor to
+explain the reason for the changes. Until REDCap enables features that allows
+this tracking, git is an appropriate alternative.
+
+Before downloading git, it should be noted that git, and this website,
+**GitHub**, are different products/concepts, albeit they are related. Git is
+a program that works on your computer and *does not* require and internet
+connection. If you wanted, you could apply a version control system to any
+files and folders you wanted. When you designate a new version control system
+to regulate a set of files and folders, this is called a **repository**.
+GitHub essentially acts as an internet server that allows users to *share* and
+*synchronize* their version control systems; i.e., their repositories.
+
+### Tools 
+
+The most common way many users use git is using the command line interface.
+However, there are others who do not view this as a "user-friendly"
+experience, albeit that is debatable depending on your familiarity and
+experience working with command line interfaces. In this case, GitHub has
+created a [GitHub Desktop](https://desktop.github.com) which has graphical
+user interface (GUI) that allows users to synchronize their local repositories
+with repositories stored on GitHub. For now, we recommend using this
+graphical-friendly version.
+
+**Note**: you will need a GitHub account to use this.
