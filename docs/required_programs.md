@@ -5,7 +5,9 @@ The document will cover information about the following:
 - Terminals and Command Line Interfaces (CLI)
 - Package Managers (Homebrew and Chocolatey)
 - Python
-- 
+- Virtual Environments
+- GitHub Desktop
+- Travis CLI
 
 In order to begin you'll need to ensure that you have the following programs
 and software installed:
@@ -123,7 +125,7 @@ to regulate a set of files and folders, this is called a **repository**.
 GitHub essentially acts as an internet server that allows users to *share* and
 *synchronize* their version control systems; i.e., their repositories.
 
-### Tools 
+### Program to use Git 
 
 The most common way many users use git is using the command line interface.
 However, there are others who do not view this as a "user-friendly"
@@ -135,3 +137,24 @@ with repositories stored on GitHub. For now, we recommend using this
 graphical-friendly version.
 
 **Note**: you will need a GitHub account to use this.
+
+## [Travis](https://travis-ci.org)
+
+Travis is a service that links with GitHub to enable *continuous
+integration*. With continuous integrations, we can write programmable tests
+that are checked every time we make make changes to our repository or files.
+This allows us to simply make changes, save our progress, and immediately
+receive feedback, via Travis, indicating whether our changes broke any of our
+rules or tests we set up to catch errors. Additionally, travis enables us to
+encrypt files that need to be on our internet repository that need to be
+stored securely. 
+
+To install travis you'll need Ruby (Another programming language). Use this
+chocolaty command (macOS users can skip this step since mac comes with ruby
+already installed):
+
+`choco install ruby`
+
+Then use ruby to install travis
+
+`gem install travis`
