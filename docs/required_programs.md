@@ -98,7 +98,7 @@ Run the following command to install virtual environments for python
 
 `python -m pip install virtualenvwrapper`
 
-## Git / GitHub Desktop
+## Git / [GitHub Desktop](http://www.itrelease.com/wp-content/uploads/2017/11/GUI-vs-CLI.png)
 
 Git is a version control system. There are plenty of resources on the web that
 give an overview of what Git is and how to use it. This section will briefly
