@@ -34,3 +34,7 @@ histories (because only **you** will be working on these copied files). Why do
 you need to copy something again if we just forked it? Because the data
 currently exists online, and you need to download it (aka *clone it*) onto
 your personal computer in order to actually work with the data.
+
+To clone your repository, open your GitHub desktop application, click File \>
+Clone Repository. After that, you will have a copy of the data on your
+computer ready to work with the data after setting up.
