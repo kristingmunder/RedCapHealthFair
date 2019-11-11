@@ -6,7 +6,7 @@ a configuration file that holds your REDCap API Tokens. Follow the
 instructions below:
 
 1. Create a new file called `config.json` within the RedCapHealthFair folder that you cloned
-  - The RedCapHealthFair folder should be located under your home folder on
+    - The RedCapHealthFair folder should be located under your home folder on
 	your computer > GitHub > RedCapHealthFair
 1. Edit the file, and copy and paste the following text:
 
