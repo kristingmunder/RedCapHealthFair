@@ -9,6 +9,8 @@ Service.
 
 ## Getting Started
 You should only need to run through these steps once.
+- [Obtain REDCap API
+  Tokens](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/api_tokens.md) for each project of interest
 - Install the [required programs](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/required_programs.md)
 - [Create a GitHub account](https://github.com/join?source=header-home)
 - [Fork the repository](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/fork.md)
