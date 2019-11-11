@@ -20,7 +20,9 @@ You should only need to run through these steps once.
 ## Editing
 Use these steps when you'd like to make and propose changes to REDCap
 - Synchronize your current version with MedIT Test Project
+    - `python ./scripts/upload.py`
 - Login to redcap and make your changes on the MedIT Test project
 - Update the repository data by downloading back into the repo
+    - `python ./scripts/download.py`
 - Push changes via git to the cloud GitHub
 - Make a pull request
