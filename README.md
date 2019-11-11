@@ -14,7 +14,8 @@ You should only need to run through these steps once.
 - Install the [required programs](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/required_programs.md)
 - [Create a GitHub account](https://github.com/join?source=header-home)
 - [Fork the repository](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/fork.md)
-- Setup your configuration file
+- [Setup your configuration
+  file](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/config_setup.md)
 
 ## Editing
 Use these steps when you'd like to make and propose changes to REDCap
