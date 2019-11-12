@@ -20,7 +20,8 @@ You should only need to run through these steps once.
 ## Editing
 Use these steps when you'd like to make and propose changes to REDCap
 
-- Synchronize your repository with this one by making a pull request to your
+- Synchronize your repository with this one by making a [pull
+  request](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/pull_request.md) to your
   forked repository
 - Pull down any changes from your repository to your local machine
 - Synchronize your current version with MedIT Test Project, by uploading your
