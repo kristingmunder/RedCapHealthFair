@@ -24,6 +24,13 @@ Use these steps when you'd like to make and propose changes to REDCap
   request](https://github.com/umdocsmedit/RedCapHealthFair/blob/master/docs/pull_request.md) to your
   forked repository
 - Pull down any changes from your repository to your local machine
+- Setup your python environement
+    - If you decide to use virtual environment:
+	    - `mkvirtualenv rchf` - this will make a new virtual environment
+		  called rchf (REDCap HealthFair), you'll only need to do this the
+		  first time, afterward you can simply use: `workon rchf`
+	- This is also a one time thing to ensure you have all the requirements
+	  for python installed `python -m pip install -r requirements.txt` 
 - Synchronize your current version with MedIT Test Project, by uploading your
   data dictionary to REDCap
     - `python ./scripts/upload.py`
