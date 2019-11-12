@@ -19,10 +19,16 @@ You should only need to run through these steps once.
 
 ## Editing
 Use these steps when you'd like to make and propose changes to REDCap
-- Synchronize your current version with MedIT Test Project
+
+- Synchronize your repository with this one by making a pull request to your
+  forked repository
+- Pull down any changes from your repository to your local machine
+- Synchronize your current version with MedIT Test Project, by uploading your
+  data dictionary to REDCap
     - `python ./scripts/upload.py`
 - Login to redcap and make your changes on the MedIT Test project
 - Update the repository data by downloading back into the repo
     - `python ./scripts/download.py`
 - Push changes via git to the cloud GitHub
-- Make a pull request
+- Make a pull request from you forked repository to this one (this step will
+  require approval)
