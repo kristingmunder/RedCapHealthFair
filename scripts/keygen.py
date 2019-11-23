@@ -1,14 +1,19 @@
+import random
+import string
 import subprocess
 import binascii
-import DataSync as ds
 
-config = ds.load_config()
 
-key: bytes = str.encode(config['key'])
-iv: bytes = str.encode(config['iv'])
+def random_string(len=32):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(len))
 
-assert len(key) == 32
-assert len(iv) == 16
+
+key_string: str = random_string(32)
+iv_string: str = random_string(16)
+
+key: bytes = str.encode(key_string)
+iv: bytes = str.encode(iv_string)
 
 hex_key: str = binascii.hexlify(key).decode("utf-8")
 hex_iv: str = binascii.hexlify(iv).decode("utf-8")
