@@ -10,20 +10,21 @@
 
 ## Forking
 
-A Fork of a repository is called a "Fork", because you essentially are copying
-the entire data structure (all the files, folders, etc) of the repository. And
-because all of this has a comprehensively tracked history, you're essentially
-creating a *Fork* in the road of the history of the data which, after
-modification, can be merged back together into a complete history.
+When you make a "fork" of a repository, you're essentially copying the entire
+data structure (all the files, folders, etc) of the repository. And because
+all of this has a comprehensively tracked history, you're essentially creating
+a *Fork* in the road of the history of the data which, after modification, can
+be merged back together into a complete history.
 
 The reason we do this is so that everyone who is working to make changes to
 our REDCap instruments can do so in an isolated way that won't affect whatever
 someone else is working on. Later, everyone's changes can be merged together.
 
-By clicking the fork button an identical copy of the repository will be
-created under your GitHub account, giving you full access to make changes.
-This way, the main copy can be completely isolated from changes, and merging
-changes will only occur after approved review of the changes.
+By clicking the fork button at the top of the page an identical copy of the
+repository will be created under your GitHub account, giving you full access
+to make changes. This way, the main copy can be completely isolated from
+changes, and merging changes will only occur after approved review of the
+changes.
 
 ## Cloning
 
