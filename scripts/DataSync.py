@@ -4,7 +4,7 @@ import json
 import requests
 import pandas as pd
 
-from typing import List, Dict, TextIO
+from typing import List, Dict, TextIO, cast
 
 full_file_path = os.path.realpath(__file__)
 dir_name = os.path.dirname(full_file_path)
@@ -15,6 +15,9 @@ DATA_DICTIONARY_FILE_PATH = f'{DATA_DICTIONARY_DIR}/DataDictionary.csv'
 
 
 def load_config() -> dict:
+    if 'TRAVIS' in os.environ and os.environ['TRAVIS'] == 'true':
+        return cast(dict, os.environ)
+
     print("Loading Configuration file...")
     with open(CONFIG_FILE_PATH, 'r') as config_file:
         config_text: str = config_file.read()
