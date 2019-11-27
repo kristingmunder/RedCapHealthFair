@@ -28,14 +28,15 @@ access your computer's CLI:
   1. Click the windows start button
   1. type "Powershell"
   1. Press enter
-- macOS: on macOS we'll use the [Terminal App](https://support.apple.com/guide/terminal/welcome/mac)
+- macOS: on macOS we'll use the [Terminal
+  App](https://support.apple.com/guide/terminal/welcome/mac)
   1. Open spotlight (⌘ + space bar)
   1. Type "Terminal"
   1. Press enter
 
-You'll see a series of commands listed below. You can simply copy and paste
-those commands into the terminal or powershell and press enter to execute
-those commands.
+You'll see a series of commands listed below that begin with the `$`. You can
+simply copy and paste those commands (without the `$`) into the terminal or
+powershell and press enter to execute those commands.
 
 ## Package Managers
 
@@ -47,18 +48,20 @@ Follow the links below to install your package manager
 
 ### Windows: [Chocolatey](https://chocolatey.org)
 
-Chocolatey is a new package manager that allows user to download and install
-software by typing in commands on PowerShell use command below to install
-Chocolatey
+Chocolatey is a relatively new package manager for Windows that allows users
+to download and install software by typing commands on PowerShell. Copy and
+paste the command below to install Chocolatey:
 
-`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+`$ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object
+System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 ### macOS: [Homebrew](https://brew.sh)
 
-Similar to Chocolatey, homebrew allows you to manage installed packages fro
-macOS. Use the command below to install homebrew
+Similar to Chocolatey, homebrew allows users with macOS operating system to
+manage installed packages for macOS. In contrast to Chocolatey, homebrew has
+been around longer. Use the command below to install homebrew for macOS:
 
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+`$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 ## Python 3
 
@@ -69,20 +72,21 @@ never hurts 😉.
 [Python](https://www.python.org) is a *dynamic* scripting language used in
 a variety of fields, from statistical analysis and machine learning to web
 development and basic programming. In fact, the ANKI flash card app was made
-using Python scripts. We use python scripts to automate some of the heavy
-lifting when transferring data between REDCap projects and these stored
-repositories and to run tests to ensure that any changes won't cause any
-technical errors.
+using Python scripts! Check out their code
+[here](https://github.com/dae/anki)! We use python scripts to automate some of
+the heavy lifting when transferring data between REDCap projects and these
+stored repositories and to run tests to ensure that any changes won't cause
+any technical errors.
 
-It is important to note that we utilize Python 3. This is mentioned because
-there are some version of the python programming language that are distributed
-as Python 2.7. Most Apple macOS computers come already installed with Python
-2.7, but you'll still need to follow the instructions below to ensure you have
-the appropriate version. Here we list the recommend ways to install python
-based on your operating system:
+It is important to note that we utilize Python version 3. This is mentioned
+because there are some version of the python programming language that are
+distributed as Python 2.7. Most Apple macOS computers are already installed
+with Python 2.7. Even so, you'll need to follow the instructions below to
+ensure you have the appropriate version. Here we list the recommend ways to
+install python based on your operating system:
 
-- Windows: `choco install python`
-- macOS: `brew install python3`
+- Windows: `$ choco install python`
+- macOS: `$ brew install python3`
 
 If the installation was successful, you should be able to run python by simply
 typing `python` into your terminal. Then type `exit()` to quit.
@@ -94,11 +98,18 @@ different versions, it is nice to let your computer know what specific version
 you are working with. There are python libraries and code that we use that is
 written by others using different versions and using virtual environments
 ensures that we get the code that matches the current version of Python we
-use.
+use. **Note:** this is only available under macOS and linux, not Windows
 
 Run the following command to install virtual environments for python
 
-`python -m pip install virtualenvwrapper`
+`$ python -m pip install virtualenvwrapper`
+
+Then copy and paste the following into terminal:
+
+```bash
+prtinf "export WORKON_HOME=$HOME/.envs\n\nfunction venv {\n\tsource
+/usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
+```
 
 ## Git / [GitHub Desktop](http://www.itrelease.com/wp-content/uploads/2017/11/GUI-vs-CLI.png)
 
@@ -112,7 +123,7 @@ introduction on the importance and use of git.
 
 Briefly, git allows us to maintain **who** made changes to **what** portions
 of our REDCap data dictionary and **why**. REDCap currently logs who makes
-changes, however, it's logs do not tell us what, nor allow the editor to
+changes, however, its logs do not tell us what, nor allow the editor to
 explain the reason for the changes. Until REDCap enables features that allows
 this tracking, git is an appropriate alternative.
 
@@ -145,7 +156,10 @@ integration*. With continuous integrations, we can write programmable tests
 that are checked every time we make make changes to our repository or files.
 This allows us to simply make changes, save our progress, and immediately
 receive feedback, via Travis, indicating whether our changes broke any of our
-rules or tests we set up to catch errors. Additionally, travis enables us to
+rules or tests we set up to catch errors. Think of this as like
+an automated spell checker, but instead of spelling, it's checking
+for whatever we need to it to check for; i.e., valid variable
+names and/or branching logic, etc. Additionally, travis enables us to
 encrypt files that need to be on our internet repository that need to be
 stored securely. 
 
@@ -153,8 +167,8 @@ To install travis you'll need Ruby (Another programming language). Use this
 chocolaty command (macOS users can skip this step since mac comes with ruby
 already installed):
 
-`choco install ruby`
+`$ choco install ruby`
 
-Then use ruby to install travis
+Then use ruby to install travis:
 
-`gem install travis`
+`$ gem install travis`
