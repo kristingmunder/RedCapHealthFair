@@ -44,7 +44,7 @@ This configuration file allows travis to simulate an upload of your changes
 directly to REDCap too determine if REDCap will have any errors to report when
 attempting to upload the changes. However, we **DO NOT** want to upload this
 configuration file to GitHub, since the API tokens are to be kept secret for
-security reason! So we also need to encrypt the configuration file. To do this:
+security reason! So we also need to send this data directoy to travis. To do this:
 
 1. Open up the GitHub Desktop Application
 1. Click Repository > Open in terminal
