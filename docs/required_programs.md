@@ -17,9 +17,10 @@ and software installed:
 To install the necessary software, we'll be using *Command Line Interfaces*
 (CLI). This is a computer term that contrasts with *Graphical User Interface*
 (GUI) which is what most users are familiar with; i.e., buttons, text boxes
-and graphical displays. CLIs instead can often achieve the same goals as GUIs
-but do this by typing in a series of commands. Be certain to know how to
-access your computer's CLI:
+and graphical displays. CLIs instead can often achieve the same goals as GUIs,
+but they do this by typing in a series of commands. Be certain to know how to
+access your computer's CLI by following the steps below that correspond to
+your operating system:
 
 - Windows 10: Window's default command line interface is called
   [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
@@ -34,17 +35,17 @@ access your computer's CLI:
   1. Type "Terminal"
   1. Press enter
 
-You'll see a series of commands listed below that begin with the `$`. You can
-simply copy and paste those commands (without the `$`) into the terminal or
-powershell and press enter to execute those commands.
+You'll see a series of commands listed below that begin with the `$` sign. You
+can simply copy and paste those commands (without the `$`) into the terminal
+or powershell and press enter to execute those commands.
 
 ## Package Managers
 
 In order to install all the software needed in a standardized and reproducible
 way, we encourage the use of community organized and verified package
 managers. In short, these package managers allow you to download and install
-programs using commands rather than downloading an install from the internet.
-Follow the links below to install your package manager
+programs using commands rather than downloading and installing programs from
+the internet. Follow the links below to install your package manager
 
 ### Windows: [Chocolatey](https://chocolatey.org)
 
@@ -89,26 +90,26 @@ install python based on your operating system:
 - macOS: `$ brew install python3`
 
 If the installation was successful, you should be able to run python by simply
-typing `python` into your terminal. Then type `exit()` to quit.
+typing `python` or `python3` into your terminal. Then type `exit()` to quit.
 
 ## [Virtual Environments](https://virtualenv.pypa.io/en/latest/) *Recommended*
 
 Installing this is not required, but recommended. Because python exists in
 different versions, it is nice to let your computer know what specific version
-you are working with. There are python libraries and code that we use that is
-written by others using different versions and using virtual environments
-ensures that we get the code that matches the current version of Python we
-use. **Note:** this is only available under macOS and linux, not Windows
+you are working with. There are python libraries and code that has been
+written by others that we will use written by others using different versions
+and using virtual environments ensures that we get the code that matches the
+current version of Python we use. **Note:** this is only available under macOS
+and linux, not Windows
 
 Run the following command to install virtual environments for python
 
-`$ python -m pip install virtualenvwrapper`
+`$ python3 -m pip install virtualenvwrapper`
 
 Then copy and paste the following into terminal:
 
 ```bash
-prtinf "export WORKON_HOME=$HOME/.envs\n\nfunction venv {\n\tsource
-/usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
+printf "export WORKON_HOME=$HOME/.envs\n\nfunction venv {\n\tsource /usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
 ```
 
 ## Git / [GitHub Desktop](http://www.itrelease.com/wp-content/uploads/2017/11/GUI-vs-CLI.png)
@@ -151,23 +152,25 @@ graphical-friendly version.
 
 ## [Travis](https://travis-ci.org)
 
-Travis is a service that links with GitHub to enable *continuous
-integration*. With continuous integrations, we can write programmable tests
-that are checked every time we make make changes to our repository or files.
-This allows us to simply make changes, save our progress, and immediately
-receive feedback, via Travis, indicating whether our changes broke any of our
-rules or tests we set up to catch errors. Think of this as like
-an automated spell checker, but instead of spelling, it's checking
-for whatever we need to it to check for; i.e., valid variable
-names and/or branching logic, etc. Additionally, travis enables us to
-encrypt files that need to be on our internet repository that need to be
-stored securely. 
+Travis is a service that links with GitHub to enable *continuous integration*.
+With continuous integrations, we can write programmable tests that are checked
+every time we make changes to our repository or files. This allows us to
+simply make changes, save our progress, and immediately receive feedback, via
+Travis, indicating whether our changes broke any of our rules or tests we set
+up to catch errors. Think of this as like an automated spell checker, but
+instead of spelling, it's checking for whatever we need to it to check for;
+i.e., valid variable names and/or branching logic, etc. Additionally, travis
+enables us to encrypt files that need to be on our internet repository that
+need to be stored securely. 
 
 To install travis you'll need Ruby (Another programming language). Use this
-chocolaty command (macOS users can skip this step since mac comes with ruby
-already installed):
+chocolaty command:
 
-`$ choco install ruby`
+Windows:
+ - `$ choco install ruby`
+
+macOS:
+ - `$ brew install ruby`
 
 Then use ruby to install travis:
 
