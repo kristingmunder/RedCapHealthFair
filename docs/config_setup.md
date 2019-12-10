@@ -16,7 +16,7 @@ The python scripts that automate some of the grunt work require you to install
 some libraries. To do so copy, paste, and run the following command from
 within the REDCap health fair directory:
 
-`$ python -m pip install -r requirements.txt`
+`$ python3 -m pip install -r requirements.txt`
 
 # Configuration Setup
 
