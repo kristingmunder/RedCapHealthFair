@@ -26,6 +26,10 @@ to make changes. This way, the main copy can be completely isolated from
 changes, and merging changes will only occur after approved review of the
 changes.
 
+To fork (copy) the repository over to your GitHub account:
+ - Click the Fork button at the top of this page
+
+
 ## Cloning
 
 While forking is a copy of someone else's repository, thus creating two
@@ -36,6 +40,9 @@ you need to copy something again if we just forked it? Because the data
 currently exists online, and you need to download it (aka *clone it*) onto
 your personal computer in order to actually work with the data.
 
-To clone your repository, open your GitHub desktop application, click File \>
-Clone Repository. After that, you will have a copy of the data on your
-computer ready to work with the data after setting up.
+To clone your repository:
+ - open your GitHub desktop application
+ - click File \> Clone Repository.
+
+After that, you will have a copy of the data on your computer ready to work
+with the data after setting up.
