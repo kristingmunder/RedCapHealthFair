@@ -1,4 +1,4 @@
-# Virtual Environment (Recommended, not required)
+# Virtual Environment (Recommended for macOS users, not required)
 
 Now is the time to set up the virtual environment.
 
@@ -40,15 +40,42 @@ instructions below:
 Replace the `XXX`'s with your API tokens for new REDCAP for the `main_token`,
 and your MedIT Test project token for the `test_token`
 
-This configuration file allows travis to simulate an upload of your changes
-directly to REDCap too determine if REDCap will have any errors to report when
-attempting to upload the changes. However, we **DO NOT** want to upload this
-configuration file to GitHub, since the API tokens are to be kept secret for
-security reason! So we also need to send this data directoy to travis. To do this:
+# Setup Travis
 
-1. Open up the GitHub Desktop Application
-1. Click Repository > Open in terminal
-    - This will open a terminal CLI ready to work with the data
-1. copy and paste this command: `$ python ./scripts/keygen.py`
+Now that you have a repository, and you have travis installed, we can now link
+travis with your cloned repository so that any changes you make, can be
+checked for errors. This will require the following:
 
+ - Enable Travis on your repository
+ - Logging in to Travis in the terminal
+ - Adding your API tokens to Travis
 
+## Enable Travis on your repository
+
+Head over to [travis-ci.org](travis-ci.org), once you've logged in with
+github, head to your settings and enable this repository.
+
+## Logging into Travis from the terminal
+
+When installing necessary programs, you should have installed travis. To
+ensure you have travis, try typing `travis` in your terminal app. To log in
+use the following command:
+
+`$ travis login`
+
+You will be prompted to enter your GitHub username and password. Your password
+will not show any asterisks, but just know that you are actually typing it in.
+
+# Add your API tokens to Travis
+
+Whenever you *push* changes to your new copied repository, travis will run
+checks on it by running test, such as uploading your changes to the Test MedIT
+project and ensure there are no errors when attempting to upload. However, in
+order for travis to do this, we need to give travis the API tokens in a secure
+way. Type the following commands below and replace the XXX's with your tokens:
+
+1. `$ travis env set main_token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+1. `$ travis env set test_token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+No you're all set with setting up and can now proceed to make changes to the
+data dictionary
