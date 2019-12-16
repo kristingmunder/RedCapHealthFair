@@ -112,6 +112,8 @@ Then copy and paste the following into terminal:
 printf "export WORKON_HOME=$HOME/.envs\n\nexport VIRTUALENVIRONMENT_PYTHON=$(whereis python3)\n\nfunction venv {\n\tsource /usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
 ```
 
+Now restart (close & reopen) your terminal for changes to take effect
+
 ## Git / [GitHub Desktop](http://www.itrelease.com/wp-content/uploads/2017/11/GUI-vs-CLI.png)
 
 Git is a version control system. There are plenty of resources on the web that
