@@ -109,7 +109,7 @@ Run the following command to install virtual environments for python
 Then copy and paste the following into terminal:
 
 ```bash
-printf "export WORKON_HOME=$HOME/.envs\n\nfunction venv {\n\tsource /usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
+printf "export WORKON_HOME=$HOME/.envs\n\nexport VIRTUALENVIRONMENT_PYTHON=$(whereis python3)\n\nfunction venv {\n\tsource /usr/local/bin/virtualenvwrapper.sh\n}\n" >> $HOME/.bash_profile
 ```
 
 ## Git / [GitHub Desktop](http://www.itrelease.com/wp-content/uploads/2017/11/GUI-vs-CLI.png)
