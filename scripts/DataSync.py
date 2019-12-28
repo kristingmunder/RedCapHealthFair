@@ -1,5 +1,5 @@
 import os
-import csv
+import unicodecsv as csv
 import json
 import requests
 import pandas as pd
@@ -76,8 +76,8 @@ def json_to_csv(
 
     json_data: dict = json.loads(json_text)
     csv_name: str = file_name
-    with open(csv_name, 'w') as f:
-        writer = csv.writer(f)
+    with open(csv_name, 'wb') as f:
+        writer = csv.writer(f, encoding='utf-8')
         keys: List[str] = list(json_data[0].keys())
         writer.writerow(keys)
         for entry in json_data:
