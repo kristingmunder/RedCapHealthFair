@@ -14,7 +14,9 @@ def test_upload():
 
     # Obtain our data dictionary
     instrument_dfs: List[pd.DataFrame] = ds.read_json_instruments_df()
-    data_dictionary: pd.DataFrame = ds.compile_instrument_dataframes(instrument_dfs)
+    data_dictionary: pd.DataFrame = ds.compile_instrument_dataframes(
+            instrument_dfs
+            )
     response: requests.Response = ds.upload_data_df(data_dictionary)
 
     assert response.status_code == 200
