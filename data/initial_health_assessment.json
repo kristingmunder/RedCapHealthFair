@@ -445,7 +445,7 @@
         "section_header": null,
         "field_type": "dropdown",
         "field_label": "Language",
-        "select_choices_or_calculations": "1, English | 2, Spanish | 3, Creole | 4, Other",
+        "select_choices_or_calculations": "1, English | 2, Spanish | 3, Creole | 5, Portuguese | 4, Other",
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
         "text_validation_min": null,
