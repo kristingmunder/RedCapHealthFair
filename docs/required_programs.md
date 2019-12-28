@@ -25,7 +25,8 @@ your operating system:
 - Windows 10: Window's default command line interface is called
   [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
   We'll be using this to run commands in order to install the required
-  programs. The steps allow you to open PowerShell on windows
+  programs. *Note*: Command Prompt is also possible to use. The steps allow
+  you to open PowerShell on windows
   1. Click the windows start button
   1. type "Powershell"
   1. Press enter
@@ -151,6 +152,12 @@ with repositories stored on GitHub. For now, we recommend using this
 graphical-friendly version.
 
 **Note**: you will need a GitHub account to use this.
+
+We still need to ensure you have the git command line interface. This comes
+pre-installed on macOS machines. Windows machines can download it from online
+or use the following command:
+
+`$ choco install git`
 
 ## [Travis](https://travis-ci.org)
 
