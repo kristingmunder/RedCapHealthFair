@@ -698,25 +698,5 @@
         "matrix_group_name": null,
         "matrix_ranking": null,
         "field_annotation": null
-    },
-    {
-        "field_name": "iha_do_not_contact",
-        "form_name": "initial_health_assessment",
-        "section_header": null,
-        "field_type": "radio",
-        "field_label": "Does the patient no longer want to be contacted for future fairs?",
-        "select_choices_or_calculations": "0, No | 1, Yes",
-        "field_note": null,
-        "text_validation_type_or_show_slider_number": null,
-        "text_validation_min": null,
-        "text_validation_max": null,
-        "identifier": null,
-        "branching_logic": null,
-        "required_field": null,
-        "custom_alignment": null,
-        "question_number": null,
-        "matrix_group_name": null,
-        "matrix_ranking": null,
-        "field_annotation": "[@DEFAULT='0'][@HIDDEN]"
     }
 ]
