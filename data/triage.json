@@ -59,6 +59,26 @@
         "matrix_ranking": null,
         "field_annotation": null
     },
+	{
+        "field_name": "hx_of_diabetes",
+        "form_name": "triage",
+        "section_header": "Point of Care (POC) - Glucose",
+        "field_type": "yesno",
+        "field_label": "Do you have a history of diabetes?",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": "y",
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
     {
         "field_name": "fmx_diabetes",
         "form_name": "triage",
