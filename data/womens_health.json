@@ -885,7 +885,7 @@
         "section_header": null,
         "field_type": "radio",
         "field_label": "Intimate partner violence screen",
-        "select_choices_or_calculations": "1, Positive | 2, Negative | 3, Not Screened",
+        "select_choices_or_calculations": "1, Positive | 2, Negative | 3, Not Screened | 4, Past history of intimate partner violence",
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
         "text_validation_min": null,
