@@ -344,7 +344,7 @@
         "form_name": "colon_cancer_screening_new",
         "section_header": null,
         "field_type": "notes",
-        "field_label": "<div class=\"rich-text-field-label\"><p>When was each test performed?</p> <p><span style=\"color: #ff0000;\" data-darkreader-inline-color=\"\">**Note:</span>\u00a0<span style=\"text-decoration: underline;\">Only</span>\u00a0for Colonoscopy/ Sigmoidoscopy results, consult with a Provider/ SM to differentiate between positive vs. negative results.<span style=\"color: #ff0000;\" data-darkreader-inline-color=\"\">**</span></p> <p>Describe Colonoscopy/Sigmoidoscopy results here:\u00a0<span style=\"font-weight: normal;\">(Results will be seen by a physician at FDE)\u00a0</span></p></div>",
+        "field_label": "<div class=\"rich-text-field-label\"><p>For each test, indidcate when the test was performed:</p> <p><span style=\"color: #ff0000;\">**</span>If patient had a colonoscopy/sigmoidoscopy<span style=\"color: #ff0000;\">**</span>: Consult with a Provider/SM to differentiate between positive vs negative results. Provide a description of the results here<span style=\"font-weight: normal;\"> (description will be seen by a physician at FDE):\u00a0</span></p></div>",
         "select_choices_or_calculations": null,
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
