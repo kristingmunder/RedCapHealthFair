@@ -1911,7 +1911,7 @@
         "text_validation_min": null,
         "text_validation_max": null,
         "identifier": null,
-        "branching_logic": "[crc_firstdegree] = '1'",
+        "branching_logic": "[crc_familyhistory] = '1'",
         "required_field": null,
         "custom_alignment": null,
         "question_number": null,
