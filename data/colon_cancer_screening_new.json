@@ -124,7 +124,7 @@
         "form_name": "colon_cancer_screening_new",
         "section_header": null,
         "field_type": "checkbox",
-        "field_label": "<div class=\"rich-text-field-label\"><p>Chich family member(s) was diagnosed with CRC?</p></div>",
+        "field_label": "<div class=\"rich-text-field-label\"><p>Which family member(s) was diagnosed with CRC?</p></div>",
         "select_choices_or_calculations": "4, Child | 1, Sibling | 2, Parent | 3, Grandparent | 5, Unknown",
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
