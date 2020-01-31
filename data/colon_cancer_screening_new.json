@@ -151,7 +151,7 @@
         "text_validation_min": null,
         "text_validation_max": null,
         "identifier": null,
-        "branching_logic": "[crc_familyhistory] = \"1\" and [crc_family_member] <> \"\"",
+        "branching_logic": "[crc_familyhistory] = \"1\" and (\n[crc_family_member(1)] = \"1\" or\n[crc_family_member(2)] = \"1\" or\n[crc_family_member(3)] = \"1\" or\n[crc_family_member(4)] = \"1\" or\n[crc_family_member(5)] = \"1\"\n)",
         "required_field": "y",
         "custom_alignment": null,
         "question_number": null,
