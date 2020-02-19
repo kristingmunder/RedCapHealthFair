@@ -2411,7 +2411,7 @@
         "text_validation_min": null,
         "text_validation_max": null,
         "identifier": null,
-        "branching_logic": "(\n\t[baker_act] = '1'\n\tor [hiv_screen_results] = '1'\n\tor [hepc_screen_result] = '1'\n\tor [male_high_risk] = '1'\n\tor [crc_blood_sig] = '1'\n\tor [high_risk_female(2)] = \"1\"\n\tor [high_risk_female(4)] = \"1\"\n\tor [derm_malig] = '1'\n)\nand [health_insurance] <> '0' and [health_insurance] <> '1' and [health_insurance] <> '2' and [health_insurance] <> '3'",
+        "branching_logic": "([baker_act] = '1' or [hiv_screen_results] = '1' or [hepc_screen_result] = '1' or [male_high_risk] = '1' or [crc_blood_stool] = '1' or [high_risk_female(2)] = \"1\" or [high_risk_female(4)] = \"1\" or [derm_malig] = '1') and [health_insurance] <> '0' and [health_insurance] <> '1' and [health_insurance] <> '2' and [health_insurance] <> '3'",
         "required_field": null,
         "custom_alignment": null,
         "question_number": null,
