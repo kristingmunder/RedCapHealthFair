@@ -220,6 +220,26 @@
         "field_annotation": null
     },
     {
+        "field_name": "ipv_resources_provided2",
+        "form_name": "mens_health",
+        "section_header": null,
+        "field_type": "yesno",
+        "field_label": "*** FOR VOLUNTEER ONLY ***\r\n\r\nWere intimate partner violence resources provided to the patient?",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": null,
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
         "field_name": "partner_violence_details_m",
         "form_name": "mens_health",
         "section_header": null,
