@@ -1,6 +1,7 @@
 [
     "initial_health_assessment",
     "consent_to_treatment",
+    "research_consent",
     "photo_consent",
     "general_questions",
     "triage",
