@@ -164,7 +164,7 @@
         "form_name": "consent_to_treatment",
         "section_header": null,
         "field_type": "checkbox",
-        "field_label": "Interpreter \r\n\r\nBy checking this box, you agree to being an interpreter for the above consent.",
+        "field_label": "Interpreter \n\nBy checking this box, you agree to being an interpreter for the above consent.",
         "select_choices_or_calculations": "1, I agree",
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,

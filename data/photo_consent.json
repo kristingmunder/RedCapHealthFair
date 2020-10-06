@@ -284,7 +284,7 @@
         "form_name": "photo_consent",
         "section_header": null,
         "field_type": "descriptive",
-        "field_label": "Name of Department Representative: Raysa Christodoulou\r\nDepartment: Department of Community Service (DOCS)\r\nPhone Number: 305-243-4898",
+        "field_label": "Name of Department Representative: Raysa Christodoulou\nDepartment: Department of Community Service (DOCS)\nPhone Number: 305-243-4898",
         "select_choices_or_calculations": null,
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
