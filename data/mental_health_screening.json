@@ -224,7 +224,7 @@
         "form_name": "mental_health_screening",
         "section_header": null,
         "field_type": "calc",
-        "field_label": "Audit C Score\r\n\r\nEach question is scored from 0-4 points.\r\n\r\nIn men, a score of 4 or more and in women, a score of 3 or more is considered positive for hazardous drinking or active alcohol use disorders.\r\n\r\nIf all points are from question 1, it can be assumed that the patient is drinking below recommended limits. Review the drinking history with the patient again to confirm accuracy.\r\n\r\nThe higher the score, the more likely it is that the patient's drinking is affecting his or her safety.\r\n",
+        "field_label": "Audit C Score\n\nEach question is scored from 0-4 points.\n\nIn men, a score of 4 or more and in women, a score of 3 or more is considered positive for hazardous drinking or active alcohol use disorders.\n\nIf all points are from question 1, it can be assumed that the patient is drinking below recommended limits. Review the drinking history with the patient again to confirm accuracy.\n\nThe higher the score, the more likely it is that the patient's drinking is affecting his or her safety.\n",
         "select_choices_or_calculations": "sum([audit_c_1]-1, [audit_c_2]-1, [audit_c_3]-1)",
         "field_note": null,
         "text_validation_type_or_show_slider_number": null,
