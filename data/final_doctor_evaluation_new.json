@@ -5160,6 +5160,26 @@
         "field_annotation": null
     },
     {
+        "field_name": "email_report",
+        "form_name": "final_doctor_evaluation_new",
+        "section_header": null,
+        "field_type": "yesno",
+        "field_label": "We can send the important results of the health fair to the patient by email.  Choosing yes will automatically send the results in a few days. The patient's email is [email]. Please confirm this is correct with the patient before selecting yes. If this is incorrect return to IHA without clicking complete on this form.",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": null,
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
         "field_name": "that_is_the_end_of_your_me",
         "form_name": "final_doctor_evaluation_new",
         "section_header": null,
