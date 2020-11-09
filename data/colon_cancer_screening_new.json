@@ -71,7 +71,7 @@
         "text_validation_min": null,
         "text_validation_max": null,
         "identifier": null,
-        "branching_logic": "[age] >= 50",
+        "branching_logic": "[age] >= 45",
         "required_field": null,
         "custom_alignment": null,
         "question_number": null,
