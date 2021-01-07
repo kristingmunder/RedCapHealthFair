@@ -120,6 +120,26 @@
         "field_annotation": null
     },
     {
+        "field_name": "previous_comments_dental",
+        "form_name": "dental",
+        "section_header": null,
+        "field_type": "descriptive",
+        "field_label": "<div class=\"rich-text-field-label\"><p>Previous comments for counseling at FDE <span style=\"font-weight: normal;\"><br /></span></p> <table style=\"border-collapse: collapse; width: 100%; height: 68px;\" border=\"1\"> <tbody> <tr style=\"height: 17px;\"> <td style=\"width: 75.75976845151953%; height: 17px;\"><span style=\"color: #000080;\">\u00a0</span><span style=\"font-weight: normal;\">[next-event-name][reason_for_referral]</span></td> </tr> </tbody> </table> <p>\u00a0</p></div>",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": null,
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
         "field_name": "reason_for_referral",
         "form_name": "dental",
         "section_header": null,
