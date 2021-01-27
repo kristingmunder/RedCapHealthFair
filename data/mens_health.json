@@ -217,7 +217,7 @@
         "question_number": null,
         "matrix_group_name": null,
         "matrix_ranking": null,
-        "field_annotation": null
+        "field_annotation": "@HIDECHOICE=\"4\"\r\nWe were asked to remove option 4 by the station manager in the past- we kept the option since some people may have selected it, but it is hidden"
     },
     {
         "field_name": "mens_health_ehit_score",
@@ -231,7 +231,27 @@
         "text_validation_min": 5.0,
         "text_validation_max": 25.0,
         "identifier": null,
-        "branching_logic": "[male_partner_violence]=1",
+        "branching_logic": null,
+        "required_field": "y",
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
+        "field_name": "men_past_ipv_history",
+        "form_name": "mens_health",
+        "section_header": null,
+        "field_type": "yesno",
+        "field_label": "Past history of intimate partner violence disclosed",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
         "required_field": "y",
         "custom_alignment": null,
         "question_number": null,
