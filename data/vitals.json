@@ -20,6 +20,26 @@
         "field_annotation": null
     },
     {
+        "field_name": "vitals_lastyear",
+        "form_name": "vitals",
+        "section_header": null,
+        "field_type": "descriptive",
+        "field_label": "<div class=\"rich-text-field-label\"><table style=\"border-collapse: collapse; width: 100%;\" border=\"1\"> <tbody> <tr> <td style=\"width: 50%; text-align: center;\" colspan=\"2\"><span style=\"color: #000080;\">Vitals Last Year Values<br /></span><span style=\"font-weight: normal;\"><br /></span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Blood Pressure Left</span></td> <td class=\"nowrap\" style=\"width: 49.9276%;\"><span style=\"font-weight: normal;\">[next-event-name][blood_pressure_left_sys]/[next-event-name][blood_pressure_right_di]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Blood Pressure Right</span></td> <td style=\"width: 49.9276%; height: 17px;\"><span style=\"font-weight: normal;\">[next-event-name][blood_pressure_right_sys]/[next-event-name][blood_pressure_right_di]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">BMI:</span></td> <td style=\"width: 49.9276%; height: 17px;\"><span style=\"font-weight: normal;\">[next-event-name][bmi]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\"><span style=\"color: #000080;\">Heart Rate\u00a0</span></td> <td style=\"width: 49.9276%; height: 17px;\"><span style=\"color: #000080; font-weight: 400;\">[next-event-name][heart_rate]</span></td> </tr> </tbody> </table> <p>\u00a0</p></div>",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": null,
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
         "field_name": "station_time_stamp",
         "form_name": "vitals",
         "section_header": null,
