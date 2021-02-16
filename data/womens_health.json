@@ -931,7 +931,7 @@
         "text_validation_min": 5.0,
         "text_validation_max": 25.0,
         "identifier": null,
-        "branching_logic": null,
+        "branching_logic": "[female_intimate_violence] <> '3'",
         "required_field": "y",
         "custom_alignment": null,
         "question_number": null,
