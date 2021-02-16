@@ -80,6 +80,26 @@
         "field_annotation": null
     },
     {
+        "field_name": "crc_last_year",
+        "form_name": "colon_cancer_screening_new",
+        "section_header": null,
+        "field_type": "descriptive",
+        "field_label": "<div class=\"rich-text-field-label\"><table style=\"border-collapse: collapse; width: 100%;\" border=\"1\"> <tbody> <tr> <td style=\"width: 50%; text-align: center;\" colspan=\"2\"><span style=\"color: #000080;\">CRC Previous Year</span><span style=\"font-weight: normal;\"><br /></span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\">Colonoscopy within the last 10 years</td> <td class=\"nowrap\" style=\"width: 49.9276%;\"><span style=\"font-weight: normal;\">[next-event-name][colonoscopy_10yrs]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\">Sigmoidoscopy within the last 5 years</td> <td style=\"width: 49.9276%; height: 17px;\"><span style=\"font-weight: normal;\">[next-event-name][sigmoidoscopy_5yrs]</span></td> </tr> <tr style=\"height: 17px;\"> <td style=\"width: 50%; height: 17px;\">Which option did the patient agree to at the CRC station?</td> <td style=\"width: 49.9276%; height: 17px;\"><span style=\"font-weight: normal;\">[next-event-name][crc_tests]</span></td> </tr> </tbody> </table> <p>\u00a0</p></div>",
+        "select_choices_or_calculations": null,
+        "field_note": null,
+        "text_validation_type_or_show_slider_number": null,
+        "text_validation_min": null,
+        "text_validation_max": null,
+        "identifier": null,
+        "branching_logic": null,
+        "required_field": null,
+        "custom_alignment": null,
+        "question_number": null,
+        "matrix_group_name": null,
+        "matrix_ranking": null,
+        "field_annotation": null
+    },
+    {
         "field_name": "crc_past_history",
         "form_name": "colon_cancer_screening_new",
         "section_header": null,
