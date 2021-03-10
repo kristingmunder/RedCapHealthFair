@@ -271,7 +271,7 @@
         "text_validation_min": null,
         "text_validation_max": null,
         "identifier": null,
-        "branching_logic": "[phq_9_screen_result] = '1' or [gad_7_screen_result] = '1' or [cage_screen_result] = '1'",
+        "branching_logic": "[phq_9_screen_result] = '1' or [gad_7_screen_result] = '1' or [cage_screen_result] = '1' or [audit_c_score]>'3'",
         "required_field": "y",
         "custom_alignment": null,
         "question_number": null,
